@@ -17,7 +17,6 @@
     <style>
         body{
             font-family: "Century Gothic";
-            background-color: rgb(231, 231, 231);
         }
     </style>
 </head>
@@ -36,7 +35,7 @@
                 </a>
             </div>
             <div class="col-2 pl-0 pr-0 text-right">
-                <a class="nav-link text-center py-1 px-1" href="#">
+                <a class="nav-link text-center py-1 px-1" href="chat.html">
                     <img src="images/send.png" style="height: 30px;" class="mt-2">
                 </a>
             </div>
@@ -73,123 +72,26 @@
         <div class="menu ml-3 mr-3 py-2">
             <div class="row">
                 <div class="col-3 pr-1 text-center">
-                    <a href="#">
-                        <button type="submit" class="btn btn-warning btn-menu mt-1">
-                            <p class="font-weight-bold text-9 mb-0 text-white">SEMUA</p>
-                        </button>
-                    </a>
+                    <button id="semua" class="btn btn-outline-warning btn-menu mt-1 active">
+                        <p id="label-semua" class="font-weight-bold text-9 mb-0">SEMUA</p>
+                    </button>
                 </div>
                 <div class="col-3 px-1 text-center">
-                    <a href="#">
-                        <button type="submit" class="btn btn-outline-warning bg-white btn-menu mt-1">
-                            <p class="font-weight-bold text-8 mb-0 text-dark">PENDAFTARAN</p>
-                        </button>
-                    </a>
+                    <button id="pendaftaran" class="btn btn-outline-warning btn-menu mt-1">
+                        <p id="label-pendaftaran" class="font-weight-bold text-8 mb-0">PENDAFTARAN</p>
+                    </button>
                 </div>
                 <div class="col-3 px-1 text-center">
-                    <a href="#">
-                        <button type="submit" class="btn btn-outline-warning bg-white btn-menu mt-1">
-                            <p class="font-weight-bold text-9 mb-0 text-dark">JADWAL</p>
-                        </button>
-                    </a>
+                    <button id="jadwal" class="btn btn-outline-warning btn-menu mt-1">
+                        <p id="label-jadwal" class="font-weight-bold text-9 mb-0">JADWAL</p>
+                    </button>
                 </div>
                 <div class="col-3 pl-1 text-center">
                     <img src="images/logo_unmer1.png" width="75%">
                 </div>
             </div>
         </div>
-        <div class="box-news px-4 py-2">
-            <div class="row">
-                <div class="col-2">
-                    <img src="images/unmerbaya.png" class="foto-ava-news">
-                </div>
-                <div class="col-10">
-                    <label class="nama text-11 font-weight-bold mb-0">Periode, Jalur, dan Syarat Pendaftaran Mahasiswa Baru Universitas Merdeka Surabaya Tahun Akademik 2019-2020</label>
-                </div>
-                <p class="text-fuchsia ml-3 text-11 mb-1">Kategori Umum / 24 Agustus 2019</p>
-            </div>
-            <div class="row px-3">
-                <p class="text-11 text-justify">
-                    Pada Gelombang I,II, dan III dilakukan penerimaan Mahasiswa Baru melalui Jalur Prestasi Akademik, Prestasi Non Akademik, Non Tes, dan Tes. UNDANGAN (tanpa test, Potongan DPP sampai dengan 50%)...
-                    <a href="#" onclick="maintenance()" class="text-orange">Read More</a>
-                </p>
-
-                <img src="images/prospek-kerja.jpg" class="foto-content">
-            </div>
-            <div class="ket-foto mt-2">
-                <div class="row ml-0">
-                    <div class="col-6 px-0 text-left">
-                        <p class="text-11 mb-0">1.032 Appreciate</p>
-                    </div>
-                    <div class="col-6 pl-2 text-right">
-                        <p class="text-11 mb-0">9 Hours Ago</p>                        
-                    </div>
-                </div>
-            </div>
-            <hr class="mb-2 mt-2">
-            <div class="action-foto">
-                <div class="row">
-                    <div class="col-6 text-left">
-                        <a href="#" onclick="maintenance()">
-                            <img src="images/handshake.png" class="icon-action">
-                            <label class="text-dark text-10">Appreciate</label>
-                        </a>
-                    </div>
-                    <div class="col-6 text-right">
-                        <a href="#" onclick="maintenance()">
-                            <img src="images/users.png" class="icon-action">
-                            <label class="text-dark text-10">Read</label>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="box-news px-4 py-2 mt-2">
-            <div class="row">
-                <div class="col-2">
-                    <img src="images/unmerbaya.png" class="foto-ava-news">
-                </div>
-                <div class="col-10">
-                    <label class="nama text-11 font-weight-bold mb-0">Periode, Jalur, dan Syarat Pendaftaran Mahasiswa Baru Universitas Merdeka Surabaya Tahun Akademik 2019-2020</label>
-                </div>
-                <p class="text-fuchsia ml-3 text-11 mb-1">Kategori Umum / 24 Agustus 2019</p>
-            </div>
-            <div class="row px-3">
-                <p class="text-11 text-justify">
-                    Pada Gelombang I,II, dan III dilakukan penerimaan Mahasiswa Baru melalui Jalur Prestasi Akademik, Prestasi Non Akademik, Non Tes, dan Tes. UNDANGAN (tanpa test, Potongan DPP sampai dengan 50%)...
-                    <a href="#" onclick="maintenance()" class="text-orange">Read More</a>
-                </p>
-
-                <img src="images/prospek-kerja.jpg" class="foto-content">
-            </div>
-            <div class="ket-foto mt-2">
-                <div class="row ml-0">
-                    <div class="col-6 px-0 text-left">
-                        <p class="text-11 mb-0">1.032 Appreciate</p>
-                    </div>
-                    <div class="col-6 pl-2 text-right">
-                        <p class="text-11 mb-0">9 Hours Ago</p>                        
-                    </div>
-                </div>
-            </div>
-            <hr class="mb-2 mt-2">
-            <div class="action-foto">
-                <div class="row">
-                    <div class="col-6 text-left">
-                        <a href="#" onclick="maintenance()">
-                            <img src="images/handshake.png" class="icon-action">
-                            <label class="text-dark text-10">Appreciate</label>
-                        </a>
-                    </div>
-                    <div class="col-6 text-right">
-                        <a href="#" onclick="maintenance()">
-                            <img src="images/users.png" class="icon-action">
-                            <label class="text-dark text-10">Read</label>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="list-news">
         </div>
 
         <!-- popup konfirmasi -->
@@ -211,17 +113,14 @@
                         <p class="text-12">Apakaah anda akan mendaftar?</p>
                         <div class="row">
                         <div class="col-6 text-center pr-1">
-                            <a href="dashboard.html">
+                            <a data-dismiss="modal">
                             <button class="btn btn-outline-warning popup-yesno">
                                 <label class="font-weight-bold text-16 mb-0 text-orange">TIDAK</label>
                             </button>
                             </a>
                         </div>
                         <div class="col-6 text-center pl-1">
-                            <a href="pendaftaran_online.html">
-                            <button class="btn btn-warning popup-yesno">
-                                <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
-                            </button>
+                            <a class="btn btn-warning popup-yesno font-weight-bold text-16 mb-0 text-white" href="pendaftaran_online.html">YA
                             </a>
                         </div>
                         </div>
@@ -269,17 +168,106 @@
             </div>
         </div>
 
+        <div id="master_tag" style="display: none">    
+            <div class="box-news px-4 py-2 mb-2">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="images/unmerbaya.png" class="foto-ava-news">
+                    </div>
+                    <div class="col-10">
+                        <label id="judul" class="nama text-11 font-weight-bold mb-0"></label>
+                    </div>
+                    <p id="kategori" class="text-fuchsia ml-3 text-11 mb-1"></p>
+                </div>
+                <div class="row px-3">
+                    <p id="content" class="text-11 text-justify">
+                    </p>
+    
+                    <img id="image" src="images/prospek-kerja.jpg" class="foto-content">
+                </div>
+                <hr class="mb-2 mt-2">
+                <div class="action-foto">
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <a href="#" onclick="maintenance()">
+                                <img src="images/handshake.png" class="icon-action">
+                                <label class="text-dark text-10">Appreciate</label>
+                            </a>
+                        </div>
+                        <div class="col-6 text-right">
+                            <a href="#" onclick="maintenance()">
+                                <img src="images/users.png" class="icon-action">
+                                <label class="text-dark text-10">Read</label>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <br><br><br>
     </div>
 
     <script>
         $(document).ready(function(){
-            if(localStorage.getItem('username')== ""){
-                $('#modal-konfirmasi-daftar').modal('show');
-            }
+            get_data_user();
+            get_data_informasi();
         });
         function maintenance(){
            $("#modal-maintenance").modal("show");
+        }
+
+        $('#pendaftaran').on('click', function(){
+            window.location = 'pendaftaran.html';
+        });
+
+        $('#jadwal').on('click', function(){
+            window.location = 'jadwal.html';
+        });
+
+        function get_data_user(){
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/request_data_user/get_data_personal",
+                cache: false,
+                data: {
+                    id: localStorage.getItem('id')
+                },
+                dataType: "json",
+                success: function (data){
+                    if(data.msg == 'success'){
+                        $('#modal-konfirmasi-daftar').modal('show');                        
+                    }
+                },
+                error: function (){
+                    alert('Network Error');
+                }
+            });
+            return false;
+        }
+
+        function get_data_informasi(){
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/request_data_informasi/data_informasi",
+                cache: false,
+                dataType: "json",
+                success: function (data){
+                    $.each(data, function(index, field){
+                        tag_table = $('#master_tag').find('.box-news').clone();
+                        tag_table.find('#judul').text(field.judul);
+                        tag_table.find('#kategori').text('Kategori '+field.kategori+' / '+field.tgl);
+                        tag_table.find('#content').text(field.content);
+                        tag_table.find('#content').append('<a class="text-orange" href="detail_news.html?id='+field.id+'"'+'>Read More</a>');
+
+                        $('.list-news').append(tag_table);
+                    });
+                },
+                error: function(){
+                    alert('Network Error');
+                }
+            });
+            return false;
         }
     </script>
 

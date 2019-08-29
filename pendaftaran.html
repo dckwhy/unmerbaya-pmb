@@ -69,69 +69,29 @@
     </nav>
     
     <div class="dashboard">
-        <div class="px-4 py-2">
-            <div class="judul-news">
-                <div class="col-12 text-center">
-                    <label id="judul" class="nama text-36 font-weight-bold mb-0"></label>
-                </div>
-            </div>
-            <div class="gambar-news mt-3">
-                <div class="col-12">
-                    <img src="images/prospek-kerja.jpg" class="foto-content">
-                </div>
-            </div>
-            <div class="konten-news mt-3">
-                <div class="col-12">
-                    <p id="content" class="text-11 text-justify">
-                    </p>
-
-                </div>
-            </div>
-            <div class="back">
-                <div class="col-12 text-center">
-                    <button class="btn btn-warning py-1 px-1 welcome-next text-11 text-white" id="back-dashboard">
-                        BACK
+        <div class="menu ml-3 mr-3 py-2">
+            <div class="row">
+                <div class="col-3 pr-1 text-center">
+                    <button id="semua" class="btn btn-outline-warning btn-menu mt-1">
+                        <p id="label-semua" class="font-weight-bold text-9 mb-0">SEMUA</p>
                     </button>
+                </div>
+                <div class="col-3 px-1 text-center">
+                    <button id="pendaftaran" class="btn btn-outline-warning btn-menu mt-1 active">
+                        <p id="label-pendaftaran" class="font-weight-bold text-8 mb-0">PENDAFTARAN</p>
+                    </button>
+                </div>
+                <div class="col-3 px-1 text-center">
+                    <button id="jadwal" class="btn btn-outline-warning btn-menu mt-1">
+                        <p id="label-jadwal" class="font-weight-bold text-9 mb-0">JADWAL</p>
+                    </button>
+                </div>
+                <div class="col-3 pl-1 text-center">
+                    <img src="images/logo_unmer1.png" width="75%">
                 </div>
             </div>
         </div>
-
-        <!-- popup konfirmasi -->
-        <div class="modal fade modal-notif" id="modal-konfirmasi-daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog px-3">
-                <div class="modal-content">
-                    <div class="top-content-style text-center shadow-sm">
-                        <div class="row ml-0 mb-0">
-                        <div class="col-4 pr-2 py-2 bg-orange">
-                            <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
-                        </div>
-                        <div class="col-8 py-2 pl-2">
-                            <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="bg-content-w3pvt mt-2 text-left px-3">
-                        <p class="text-12">TERAS KAMPUS UNMER SURABAYA, merupakan aplikasi yang dirancang untuk memudahkan calon mahasiswa dalam melakukan pendaftaran online.</p>
-                        <p class="text-12">Apakaah anda akan mendaftar?</p>
-                        <div class="row">
-                        <div class="col-6 text-center pr-1">
-                            <a href="dashboard.html">
-                            <button class="btn btn-outline-warning popup-yesno">
-                                <label class="font-weight-bold text-16 mb-0 text-orange">TIDAK</label>
-                            </button>
-                            </a>
-                        </div>
-                        <div class="col-6 text-center pl-1">
-                            <a href="pendaftaran_online.html">
-                            <button class="btn btn-warning popup-yesno">
-                                <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
-                            </button>
-                            </a>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="list-news-pendaftaran">
         </div>
       
         <!-- popup maintenance -->
@@ -173,45 +133,83 @@
             </div>
         </div>
 
+        <div id="master_tag_pendaftaran" style="display: none">    
+            <div class="box-news px-4 py-2 mb-2">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="images/unmerbaya.png" class="foto-ava-news">
+                    </div>
+                    <div class="col-10">
+                        <label id="judul" class="nama text-11 font-weight-bold mb-0"></label>
+                    </div>
+                    <p id="kategori" class="text-fuchsia ml-3 text-11 mb-1"></p>
+                </div>
+                <div class="row px-3">
+                    <p id="content" class="text-11 text-justify">
+                    </p>
+    
+                    <img id="image" src="images/prospek-kerja.jpg" class="foto-content">
+                </div>
+                <hr class="mb-2 mt-2">
+                <div class="action-foto">
+                    <div class="row">
+                        <div class="col-6 text-left">
+                            <a href="#" onclick="maintenance()">
+                                <img src="images/handshake.png" class="icon-action">
+                                <label class="text-dark text-10">Appreciate</label>
+                            </a>
+                        </div>
+                        <div class="col-6 text-right">
+                            <a href="#" onclick="maintenance()">
+                                <img src="images/users.png" class="icon-action">
+                                <label class="text-dark text-10">Read</label>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <br><br><br>
     </div>
 
     <script>
         $(document).ready(function(){
-            $.urlParam = function(name){
-            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-            if (results==null) {
-                return null;
-            }
-            return decodeURI(results[1]) || 0;
-            }
-            id = $.urlParam('id');
-            get_detail_news(id);
-        });
-        $('#back-dashboard').on('click', function(){
-            window.location = "dashboard.html";
+            get_data_informasi_pendaftaran();
         });
         function maintenance(){
            $("#modal-maintenance").modal("show");
         }
 
-        function get_detail_news(id){
+        $('#semua').on('click', function(){
+            window.location = 'dashboard.html';
+        });
+
+        $('#jadwal').on('click', function(){
+            window.location = 'jadwal.html';
+        });
+
+        function get_data_informasi_pendaftaran(){
             $.ajax({
                 type: "post",
-                url: "http://localhost/unmerbaya-pmb-backend/unmer/request_detail_informasi/get_detail",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/request_data_informasi/data_informasi_pendaftaran",
                 cache: false,
-                data:{
-                    id: id
-                },
                 dataType: "json",
-                success: function(data){
-                    $('#judul').text(data.judul);
-                    $('#content').text(data.content);
+                success: function (data){
+                    $.each(data, function(index, field){
+                        tag_table = $('#master_tag_pendaftaran').find('.box-news').clone();
+                        tag_table.find('#judul').text(field.judul);
+                        tag_table.find('#kategori').text('Kategori '+field.kategori+' / '+field.tgl);
+                        tag_table.find('#content').text(field.content);
+                        tag_table.find('#content').append('<a class="text-orange" href="detail_news.html?id='+field.id+'"'+'>Read More</a>');
+
+                        $('.list-news-pendaftaran').append(tag_table);
+                    });
                 },
                 error: function(){
-
+                    alert('Network Error');
                 }
             });
+            return false;
         }
     </script>
 
