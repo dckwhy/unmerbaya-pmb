@@ -96,7 +96,7 @@
             <div class="col-12 text-left">
                 <label class="font-weight-bold mb-1 text-12" for="text">Nama</label>
                 <input type="text" class="form-control bg-white" placeholder="Jane Doe" name="name" id="name" disabled>    
-                <input type="hidden" value="" id="id-user" name="id">    
+                <input type="hidden" value=" " id="id-user" name="id">    
             </div>
             <div class="col-12 text-left mt-2">
                 <label class="font-weight-bold pt-1 my-1 text-12" for="text">Nomor Telepon</label>
@@ -115,6 +115,7 @@
                 <input type="password" class="form-control bg-white" placeholder="********" name="pass" id="password" disabled>          
             </div>
           </div>
+        </form>
             <div class="row"> 
                 <div class="col-12 text-center">
                     <a href="sign_in.html">
@@ -126,12 +127,11 @@
             </div>
             <div class="row mt-2"> 
                 <div class="col-12 text-center">
-                    <button class="btn btn-warning next-daftar text-center py-0" type="submit">
+                    <button class="btn btn-warning next-daftar text-center py-0" id="save">
                         <label class="text-12 font-weight-bold text-white mb-0">SAVE</label>
                     </button>
                 </div>
             </div>
-        </form>
       </div>
     </div>
   </div>
@@ -262,7 +262,7 @@
             });
         });
         
-        $('#my-profile').on('submit', function(e){
+        $('#save').on('click', function(e){
             e.preventDefault();
 
             $.ajax({
