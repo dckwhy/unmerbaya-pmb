@@ -64,11 +64,9 @@
     </div>
     <div class="row form-group mb-4">
         <div class="col-12 text-center">
-            <a href="sign_in.html">
-                <button class="btn btn-outline-warning welcome-next">
+                <button class="btn btn-outline-warning welcome-next" id="keluar">
                     <label class="font-weight-bold text-16 mb-0 text-orange">KELUAR</label>
                 </button>
-            </a>
         </div>
     </div>
     </div>
@@ -111,6 +109,10 @@
       },1000);
       $('#tgl').text(time.getDate()+" "+month[time.getMonth()]+" "+time.getFullYear());
       $('#nama').text(localStorage.getItem('name'));
+    });
+    $('#keluar').on('click',function(){
+      localStorage.clear();
+      window.location = "sign_in.html"
     });
     </script>
 </body>

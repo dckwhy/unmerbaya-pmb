@@ -773,21 +773,15 @@
             e.preventDefault();      
             $.ajax( {
             type :"post",
-            url : "http://localhost/unmer/unmer/request/input_personal_data",
+            url : "http://localhost/unmer/unmer/request_user/edit",
             cache :false,
-            data: new FormData($('#personal-data')[0]),
+            data: new FormData($('#my-profile')[0]),
             processData: false,
             contentType: false,
             dataType: 'json',
             success : function(data) {
                 if(data.auth_message == 'success'){
-                    $('#detail-personal-data').show();
-                    $("#data-riwayat").show();
-                    $("#point-of-interest").hide();
-                    $("#data-pendukung").hide();
-                    $("#personal-data").hide();
-                    $("#next-riwayat").show();
-                    $("#back-riwayat").show();
+                    
                 } else{
                     $('#notification-fail').show();
                 }

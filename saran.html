@@ -31,42 +31,35 @@
     </nav>
     
     <div class="saran">
-        <form class="form-horizontal px-2" id="data-cust">
-            <div class="form-group mb-0">
+        <form class="form-horizontal px-2" id="form-saran">
+            <div class="form-group">
               <div class="col-12">          
                 <label class="text-11 font-weight-bold mb-0">Nama</label>
                 <label class="text-10 text-orange mb-0">*</label>
-                <input type="text" class="form-control field text-11 shadow-sm bg-white" id="nama" placeholder="John Se" required>
+                <input type="text" class="form-control field text-11 shadow-sm bg-white" id="nama" name="nama" placeholder="John Se" required>
               </div>
             </div>
-            <div class="form-group mb-0">
-              <div class="col-12"> 
-                <label class="text-11 font-weight-bold mb-0">NIM</label>   
-                <label class="text-10 text-orange mb-0">*</label>       
-                <input type="text" class="form-control field text-11 shadow-sm bg-white" id="nim" placeholder="3510123456789" required>
-              </div>
-            </div>
-            <div class="form-group mb-0">
+            <div class="form-group">
               <div class="col-12">
                 <label class="text-11 font-weight-bold mb-0">Email </label> 
                 <label class="text-10 text-orange mb-0">*</label>                   
-                <input type="email" class="form-control field text-11 shadow-sm bg-white" id="email" placeholder="john@unmersurabaya.ac.id" required>  
+                <input type="email" class="form-control field text-11 shadow-sm bg-white" id="email" name="email" placeholder="john@unmersurabaya.ac.id" required>  
               </div>
             </div>
-            <div class="form-group mb-0">
+            <div class="form-group">
               <div class="col-12">
                 <label class="text-11 font-weight-bold mb-0">No. Telephone </label> 
                 <label class="text-10 text-orange mb-0">*</label>                   
-                <input type="email" class="form-control field text-11 shadow-sm bg-white" id="email" placeholder="082223334510" required>  
+                <input type="text" class="form-control field text-11 shadow-sm bg-white" id="telp" name="no_telp" placeholder="082223334510" required>  
               </div>
             </div>
             <div class="form-group">
               <div class="col-12">
                 <label class="text-11 font-weight-bold mb-0">Tulis Pesan </label>                   
-                <textarea rows="15" type="email" class="form-control field text-11 shadow-sm bg-white" id="pesan" placeholder="Tulis pesan disini ..." required></textarea>
+                <textarea rows="15" type="email" class="form-control field text-11 shadow-sm bg-white" id="pesan" name="pesan" placeholder="Tulis pesan disini ..." required></textarea>
               </div>
             </div>
-            <div class="form-group mt-3">
+            <div class="form-group mt-4">
                 <div class="col-12 text-center">      
                     <a href="#" class="send-saran" onclick="thanks()">
                         <button class="btn btn-warning welcome-next">
@@ -77,7 +70,7 @@
               </div>
         </form>
 
-        <!-- popup maintenance -->
+        <!-- popup saran diterima -->
         <div class="modal fade modal-notif" id="modal-terimakasih" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog px-3">
                 <div class="modal-content">
@@ -95,11 +88,11 @@
                         <p class="text-12">Saran anda telah kami terima. Terima kasih telah berkontribusi dalam mendukung pengembangan aplikasi TERAS KAMPUS UNMER SURABAYA.</p>
                         <p class="text-12">Silahkan tunggu update terbaru dari kami.</p>
                         <div class="col-12 text-center">
-                            <a href="welcome.html">
-                                <button class="btn btn-warning welcome-next">
+                            <!-- <a href="welcome.html"> -->
+                                <button class="btn btn-warning welcome-next" id="ok-saran">
                                     <label class="font-weight-bold text-16 mb-0 text-white">OK</label>
                                 </button>
-                            </a>
+                            <!-- </a> -->
                         </div>
                     </div>
                 </div>
@@ -112,6 +105,33 @@
         function thanks(){
            $("#modal-terimakasih").modal("show");
         };
+        $("#ok-saran").on("click",function(e){
+          e.preventDefault();
+
+          $.ajax({
+            type :"post",
+            url : "http://localhost/unmerbaya-pmb-backend/unmer/Request_saran/kirim_saran",
+            cache :false,
+            enctype: 'multipart/form-data',
+            data: new FormData($('#form-saran')[0]),
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success : function(data) {
+                if(data.msg == 'success'){
+                  window.location="welcome.html";
+                } else{
+                    alert('Network error!');
+                }
+            },
+            error : function() {
+                alert('Network error!');
+            }
+            });
+            return false;
+
+        });
+
     </script>
 
 </body>

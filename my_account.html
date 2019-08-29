@@ -78,39 +78,41 @@
                 </div>
                 <div class="p-image text-20">
                     <i class="fa fa-camera upload-button"></i>
-                    <input class="file-upload" type="file" accept="image/*"/>
+                    <input class="file-upload" name="foto_file" id="foto-akun" type="file" accept="image/*"/>
                 </div>
             </div>
           </div>
           <div class="info">
             <div class="title">
-              <p class="text-dark text-18 mb-0">Inas Nabila</p>
+              <p class="text-dark text-18 mb-0" id="nama_akun">Inas Nabila</p>
             </div>
             <div class="desc">
               <a class="text-dark font-weight-bold text-12" href="#" id="edit-profil" onclick="enableform()">Edit Profile</a>
             </div>
         </div>
         <hr>
-        <div class="form-group px-3" id="my-profile">
+        <form id="my-profile">
+        <div class="form-group px-3">
             <div class="col-12 text-left">
                 <label class="font-weight-bold mb-1 text-12" for="text">Nama</label>
-                <input type="text" class="form-control bg-white" placeholder="Jane Doe" id="name" disabled>    
+                <input type="text" class="form-control bg-white" placeholder="Jane Doe" name="name" id="name" disabled>    
+                <input type="hidden" value="" id="id-user" name="id">    
             </div>
             <div class="col-12 text-left mt-2">
                 <label class="font-weight-bold pt-1 my-1 text-12" for="text">Nomor Telepon</label>
-                <input type="text" class="form-control bg-white" placeholder="+6281555300999" id="telp" disabled>          
+                <input type="text" class="form-control bg-white" placeholder="+6281555300999" name="phone" id="telp" disabled>          
             </div>
             <div class="col-12 text-left mt-2">
                 <label class="font-weight-bold pt-1 my-1 text-12" for="email">Email</label>
-                <input type="email" class="form-control bg-white" placeholder="janedoe@gmail.com" id="email" disabled>          
+                <input type="email" class="form-control bg-white" placeholder="janedoe@gmail.com" name="email" id="email" disabled>          
             </div>
             <div class="col-12 text-left mt-2">
                 <label class="font-weight-bold pt-1 my-1 text-12" for="text">Username</label>
-                <input type="text" class="form-control bg-white" placeholder="janedoe99" id="uname" disabled>          
+                <input type="text" class="form-control bg-white" placeholder="janedoe99" name="username" id="uname" disabled>          
             </div>
             <div class="col-12 text-left mt-2">
                 <label class="font-weight-bold pt-1 my-1 text-12" for="email">Password</label>
-                <input type="password" class="form-control bg-white" placeholder="********" id="password" disabled>          
+                <input type="password" class="form-control bg-white" placeholder="********" name="pass" id="password" disabled>          
             </div>
           </div>
             <div class="row"> 
@@ -124,11 +126,12 @@
             </div>
             <div class="row mt-2"> 
                 <div class="col-12 text-center">
-                    <button class="btn btn-warning next-daftar text-center py-0" id="save" type="submit">
+                    <button class="btn btn-warning next-daftar text-center py-0" type="submit">
                         <label class="text-12 font-weight-bold text-white mb-0">SAVE</label>
                     </button>
                 </div>
             </div>
+        </form>
       </div>
     </div>
   </div>
@@ -232,6 +235,16 @@
             $('#save').hide();
             $('.p-image').hide();
 
+            $('#nama_akun').text(localStorage.getItem('name'));
+            $('#name').val(localStorage.getItem('name'));
+            $('#telp').val(localStorage.getItem('phone'));
+            $('#email').val(localStorage.getItem('email'));
+            $('#uname').val(localStorage.getItem('username'));
+            $('#password').val(localStorage.getItem('pass'));
+            $('#foto-akun').val(localStorage.getItem('img'));
+            $('#id-user').val(localStorage.getItem('id'));
+
+
             var readURL = function(input) {
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
@@ -249,16 +262,43 @@
             });
         });
         
-        $('#save').on('click', function(e){
-            $('#save').hide();
-            $('#keluar').show();
-            $('#edit-profil').show();
-            $('.p-image').hide();
-            document.getElementById("name").disabled = true;
-            document.getElementById("email").disabled = true;
-            document.getElementById("telp").disabled = true;
-            document.getElementById("uname").disabled = true;
-            document.getElementById("password").disabled = true;
+        $('#my-profile').on('submit', function(e){
+            e.preventDefault();
+
+            $.ajax({
+            type :"post",
+            url : "http://localhost/unmerbaya-pmb-backend/unmer/Request_user/edit_profile",
+            cache :false,
+            enctype: 'multipart/form-data',
+            data: new FormData($('#my-profile')[0]),
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success : function(data) {
+                if(data.msg == 'success'){
+                    $('#save').hide();
+                    $('#keluar').show();
+                    $('#edit-profil').show();
+                    $('.p-image').hide();
+                    document.getElementById("name").disabled = true;
+                    document.getElementById("email").disabled = true;
+                    document.getElementById("telp").disabled = true;
+                    document.getElementById("uname").disabled = true;
+                    document.getElementById("password").disabled = true;
+                } else{
+                    alert('Network error!');
+                }
+            },
+            error : function() {
+                alert('Network error!');
+            }
+            });
+            return false;
+        });
+
+        $('#keluar').on('click',function(){
+            localStorage.clear();
+            window.location = "sign_in.html"
         });
     </script>
 
