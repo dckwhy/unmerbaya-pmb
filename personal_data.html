@@ -144,6 +144,9 @@
                             <option value="Islam">Islam</option>
                             <option value="Kristen">Kristen</option>
                             <option value="Katolik">Katolik</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Kong Hu Cu">Kong Hu Cu</option>
                         </select>
                     </div>
             </div>
@@ -206,17 +209,14 @@
                         </select>
                     </div>
             </div>
-            <div class="row mt-2"> 
-                <div class="col-12 text-center">
-                    <a href="riwayat.html">
-                    <button class="btn btn-warning next-daftar text-center py-0" id="next-personal" type="submit">
-                        <label class="text-12 font-weight-bold text-white mb-0">NEXT</label>
-                    </button>
-                    </a>
-                </div>
-            </div>
         </form>
-        
+        <div class="row mt-2"> 
+            <div class="col-12 text-center">
+                <button onclick="next_daftar()" class="btn btn-warning next-daftar text-center py-0 text-12 font-weight-bold text-white mb-0">
+                    NEXT
+                </button>
+            </div>
+        </div>
         <!-- popup-konfirmasi -->
         <div class="modal fade modal-notif" id="modal-konfirmasi-daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog px-3">
@@ -376,7 +376,8 @@
         function maintenance(){
            $("#modal-maintenance").modal("show");
         }
-        $('#next-personal').on("click",function(){      
+        function next_daftar(){
+            window.location = "riwayat.html";
             localStorage.setItem('input_nama', $('#input-nama').val() );
             localStorage.setItem('input_gender', $('#input-gender').val() );
             localStorage.setItem('input_tanggal', $('#input-tanggal').val() );
@@ -389,7 +390,7 @@
             localStorage.setItem('input_phone', $('#input-phone').val() );
             localStorage.setItem('input_nik', $('#input-nik').val() );
             localStorage.setItem('input_nisn', $('#input-nisn').val() );
-        });
+        };
     </script>
 
 </body>

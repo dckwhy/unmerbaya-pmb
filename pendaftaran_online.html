@@ -38,20 +38,19 @@
                     <img src="images/unmerbaya.png" style="height: 40px;">
                 </a>
             </div>
-            <div class="col-8 px-3 mt-1">
+            <div class="col-6 px-0">
                 <a class="nav-link text-center py-1 px-1" href="#">
-                    <div class="nav-mrgn-2">
-                    <p class="font-weight-bold text-11 text-dark mb-0">Penerimaan Mahasiswa Baru</p>
-                    <p class="font-weight-bold text-11 text-dark mb-0">UNIVERSITAS MERDEKA SURABAYA</p>
-                    </div>
+                    <label class="font-weight-bold text-10 text-dark mb-0">Penerimaan Mahasiswa Baru</label>
+                    <label class="font-weight-bold text-10 text-dark mb-0">UNIVERSITAS MERDEKA SURABAYA</label>
                 </a>
             </div>
-            <div class="col-2 pl-0">
+            <div class="col-2 pl-0 pr-0 text-right">
                 <a class="nav-link text-center py-1 px-1" href="#">
-                    <div class="nav-mrgn-1">
-                        <img src="images/send.png" style="height: 30px;" class="mt-2"><br>
-                    </div>
+                    <img src="images/send.png" style="height: 30px;" class="mt-2">
                 </a>
+            </div>
+            <div class="col-1 pl-0">
+                <span class="badge badge-danger badge-notif">4</span>
             </div>
         </div>
     </nav>
@@ -82,7 +81,8 @@
     
     <div class="container pendaftaran-online">
         <!-- Personal data -->
-        <form id="personal-data" class="form mt-2">
+        <form id="input-personal-data" class="form mt-2">
+        <div id="personal-data">
             <p class="font-weight-bold text-center mb-0 ml-2 text-11">Pendaftaran Online Mahasiswa Baru </p>
             <p class="font-weight-bold text-center mb-0 ml-2 text-11">UNIVERSITAS MERDEKA SURABAYA</p>
             <p class="font-weight-bold text-center mb-0 ml-2 text-11">Tahun Akademik 2019/2020</p>
@@ -104,7 +104,7 @@
                     <label class="text-8 mb-0">Nama Calon Mahasiswa</label>
                 </div>
                 <div class="col-8" style="padding-left: 20px;">
-                    <input type="text" class="form-control teks3" placeholder="Jane Doe" name="name" required>
+                    <input type="text" class="form-control text-10" placeholder="Jane Doe" name="name" id="input-nama" required>
                 </div>
             </div>
             <div class="row">
@@ -112,7 +112,7 @@
                         <label class="text-8">Jenis Kelamin</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <select class="form-control 8 onchange="value = this.value" name="gender" required>
+                        <select class="form-control 8 onchange="value = this.value" name="gender" id="input-gender" required>
                             <option class="8>--Silahkan Pilih--</option>
                             <option value="Male">Laki-Laki</option>
                             <option value="Female">Perempuan</option>
@@ -124,7 +124,7 @@
                         <label class="text-8">Tanggal Lahir</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="date" max="3000-12-31" min="1000-01-01" class="form-control teks3" placeholder="Perempuan" name="tgl_lahir" required>
+                        <input type="date" max="3000-12-31" min="1000-01-01" class="form-control teks3" id="input-tanggal" placeholder="Perempuan" name="tgl_lahir" required>
                     </div>
             </div>
             <div class="row">
@@ -132,12 +132,7 @@
                     <label class="text-8">Tempat Lahir</label>
                 </div>
                 <div class="col-8" style="padding-left: 20px;">
-                    <select class="form-control text-10" onchange="value = this.value" required name="tempat_lahir" required>
-                        <option class="text-10" value="">--Silahkan Pilih--</option>
-                        <option value="Surabaya">Surabaya</option>
-                        <option value="Jakarta">Jakarta</option>
-                        <option value="Malang">Malang</option>
-                    </select>
+                    <input type="text" class="form-control text-10" placeholder="Tempat Lahir" name="tempat_lahir" id="input-tempat" required>
                 </div>
             </div>
             <div class="row">
@@ -145,11 +140,14 @@
                         <label class="text-8">Agama</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <select class="form-control text-10" onchange="value = this.value" required name="agama" required>
+                        <select class="form-control text-10" onchange="value = this.value" required name="agama" id="input-agama" required>
                             <option class="text-10" value="">--Silahkan Pilih--</option>
                             <option value="Islam">Islam</option>
                             <option value="Kristen">Kristen</option>
                             <option value="Katolik">Katolik</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Kong Hu Cu">Kong Hu Cu</option>
                         </select>
                     </div>
             </div>
@@ -158,12 +156,7 @@
                         <label class="text-8">Alamat Tinggal</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <select class="form-control text-10" onchange="value = this.value" required name="kota">
-                            <option class="text-10">--Kota--</option>
-                            <option value="Mojokerto">Mojokerto</option>
-                            <option value="Nganjuk">Nganjuk</option>
-                            <option value="Madiun">Madiun</option>
-                        </select>
+                        <input type="text" class="form-control text-10" placeholder="Kota" name="kota" id="input-kota" required>
                     </div>
             </div>
             <div class="row">
@@ -171,11 +164,7 @@
                         <label class="text-8"></label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <select class="form-control text-10" onchange="value = this.value" required name="kecamatan">
-                            <option class="text-10">--Kecamatan--</option>
-                            <option value="Ketawanggede">Ketawanggede</option>
-                            <option value="Lowokwaru">Lowokwaru</option>
-                        </select>
+                        <input type="text" class="form-control text-10" placeholder="Kecamatan" name="kecamatan" id="input-kecamatan" required>
                     </div>
             </div>
             <div class="row">
@@ -183,11 +172,7 @@
                         <label class="text-8"></label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <select class="form-control text-10" onchange="value = this.value" required name="desa">
-                            <option class="text-10">--Desa--</option>
-                            <option value="Kwangsen">Kwangsen</option>
-                            <option value="Jiwan">Jiwan</option>
-                        </select>
+                        <input type="text" class="form-control text-10" placeholder="Desa" name="desa" id="input-desa" required>
                     </div>
             </div>
             <div class="row">
@@ -195,12 +180,7 @@
                         <label class="text-8"></label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <select class="form-control text-10" onchange="value = this.value" required name="alamat">
-                            <option class="text-10">--Ngagel Madya 1/21--</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
+                        <input type="text" class="form-control text-10" placeholder="Alamat" name="alamat" id="input-alamat" required>
                     </div>
             </div>
             <div class="row">
@@ -208,7 +188,7 @@
                         <label class="text-8">Handphone</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class="teks3 form-control" placeholder="081555300999" name="phone" required>
+                        <input type="text" class="teks3 form-control" placeholder="081555300999" name="phone" id="input-phone" required>
                         </select>
                     </div>
             </div>
@@ -217,7 +197,7 @@
                         <label class="text-8 mb-0">Nomor Induk Kependudukan / NIK</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class="teks3 form-control" placeholder="32576258963253256" name="nik" required>
+                        <input type="text" class="teks3 form-control" placeholder="32576258963253256" name="nik" id="input-nik" required>
                         </select>
                     </div>
             </div>
@@ -226,21 +206,24 @@
                         <label class="text-8 mb-0">Nomor Induk Siswa Nasional / NISN</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class="teks3 form-control" placeholder="2356556565653593" name="nisn" required>
+                        <input type="text" class="teks3 form-control" placeholder="2356556565653593" name="nisn" id="input-nisn" required>
                         </select>
                     </div>
             </div>
             <div class="row mt-2"> 
                 <div class="col-12 text-center">
+                    <a href="riwayat.html">
                     <button class="btn btn-warning next-daftar text-center py-0" id="next-personal" type="submit">
                         <label class="text-12 font-weight-bold text-white mb-0">NEXT</label>
                     </button>
+                    </a>
                 </div>
-            </div>
+            </div>   
             <br><br><br>
-        </form>
+        </div>
+        <!-- </form> -->
          
-        <form id="detail-personal-data">
+        <!-- <form id="detail-personal-data"> -->
         <!-- Riwayat -->
             <div id="data-riwayat">
                 <p class="font-weight-bold text-center mb-0 ml-2 text-11">Pendaftaran Online Mahasiswa Baru </p>
@@ -268,7 +251,7 @@
                         <label class="text-10">Asal SMU/SMK/Sederajat</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class=" teks3 form-control" placeholder="SMUK Frateran Surabaya" name="sekolah_asal" required>
+                        <input type="text" class=" teks3 form-control" placeholder="SMUK Frateran Surabaya" id="asal-sma" name="sekolah_asal" required>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -276,13 +259,13 @@
                         <label class="text-10">Alamat SMU/SMK/Sederajat</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <textarea type="text" class="teks3 form-control" placeholder="Jl.Kepanjen No.8 Krembangan Selatan, Kota Surabaya, Jawa Timur" name="alamat_sekolah_asal"></textarea>
+                        <textarea type="text" class="teks3 form-control" id="alamat-sma" placeholder="Jl.Kepanjen No.8 Krembangan Selatan, Kota Surabaya, Jawa Timur" name="alamat_sekolah_asal"></textarea>
                     </div>
                 </div>
                 <hr>
                 <div class="row mt-2">
                     <div class="ml-3">
-                        <label class="text-14 font-weight-bold mb-0 mt-1">Riwayat Pendidikan</label>
+                        <label class="text-14 font-weight-bold mb-0 mt-1">Riwayat Pekerjaan</label>
                     </div>
                 </div>
                 <div class="row">
@@ -290,7 +273,7 @@
                         <label class="text-10 text-left">Nama Kantor</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" class="teks3 form-control" placeholder="Nama Kantor" name="nama_kantor">
+                        <input type="text" class="teks3 form-control" placeholder="Nama Kantor" id="nama-kantor" name="nama_kantor">
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -298,20 +281,23 @@
                         <label class="text-10">Alamat Kantor</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" class="teks3 form-control" placeholder="Alamat Kantor" name="alamat_kantor">
+                        <input type="text" class="teks3 form-control" placeholder="Alamat Kantor" id="alamat-kantor" name="alamat_kantor">
                     </div>
                 </div>
-                <br><br><br><br><br>
                 <div class="row mt-2"> 
                     <div class="col-6 text-right pr-1">
+                    <a href="personal_data.html">
                     <button class="btn btn-outline-warning next-daftar-2 text-center py-0" id="back-riwayat">
                         <label class="text-12 font-weight-bold text-orange mb-0">BACK</label>
                     </button>
+                    </a>
                     </div>
                     <div class="col-6 text-left pl-1">
+                    <a href="point_of_interest.html">
                     <button class="btn btn-warning next-daftar-2 text-center py-0" id="next-riwayat">
                         <label class="text-12 font-weight-bold text-white mb-0">NEXT</label>
                     </button>
+                    </a>
                     </div>
                 </div>
             </div>
@@ -339,7 +325,7 @@
                                 <label class="text-10 mb-0">Program studi yang dipilih</label>
                             </div>
                             <div class="col-8" style="padding-left: 20px;">
-                                <select class="form-control text-10" onchange="value = this.value" name="prodi" required>
+                                <select class="form-control text-10" onchange="value = this.value" name="prodi" id="pilih-prodi" required>
                                     <option class="text-10">--Silahkan pilih--</option>
                                     <option value="Hukum">Hukum</option>
                                     <option value="Teknik">Teknik</option>
@@ -352,7 +338,7 @@
                                 <label class="text-10">Program waktu Studi</label>
                             </div>
                             <div class="col-8" style="padding-left: 20px;">
-                                <select class="form-control text-10 mb-0" onchange="value = this.value" name="waktu" required>
+                                <select class="form-control text-10 mb-0" onchange="value = this.value" name="waktu" id="pilih-waktu" required>
                                     <option class="text-10">--Silahkan pilih--</option>
                                     <option value="Pagi">Pagi</option>
                                     <option value="Siang">Siang</option>
@@ -365,7 +351,7 @@
                                 <label class="text-10">Gelombang ke</label>
                             </div>
                             <div class="col-8" style="padding-left: 20px;">
-                                <select class="form-control text-10" onchange="value = this.value" name="gelombang" required >
+                                <select class="form-control text-10" onchange="value = this.value" name="gelombang" id="pilih-gelombang" required >
                                     <option class="text-10">--Silahkan pilih--</option>
                                     <option value="1">Pertama</option>
                                     <option value="2">Kedua</option>
@@ -373,23 +359,27 @@
                                 </select>
                             </div>
                     </div>
-                    <br><br><br><br><br><br><br><br><br>
+                    <br><br><br>
                     <div class="row mt-2"> 
                             <div class="col-6 text-right pr-1">
+                                <a href="riwayat.html">
                                 <button class="btn btn-outline-warning next-daftar-2 text-center py-0" id="back-point">
                                     <label class="text-12 font-weight-bold text-orange mb-0">BACK</label>
                                 </button>
+                                </a>
                             </div>
                             <div class="col-6 text-left pl-1">
+                                <a href="data_pendukung.html">
                                 <button class="btn btn-warning next-daftar-2 text-center py-0" id="next-point">
                                     <label class="text-12 font-weight-bold text-white mb-0">NEXT</label>
                                 </button>
+                                </a>
                             </div>
                         </div>
                 </div>
 
         <!-- Data Pendukung -->
-            <div id="data-pendukung">
+        <div id="data-pendukung">
                 <p class="font-weight-bold text-center mb-0 ml-2 text-11">Pendaftaran Online Mahasiswa Baru </p>
                 <p class="font-weight-bold text-center mb-0 ml-2 text-11">UNIVERSITAS MERDEKA SURABAYA</p>
                 <p class="font-weight-bold text-center mb-0 ml-2 text-11">Tahun Akademik 2019/2020</p>
@@ -412,7 +402,7 @@
                             <label class="text-10">Anda mengetahui UNMERBAYA dari </label>
                         </div>
                         <div class="col-8" style="padding-left: 20px;">
-                            <select class="form-control text-10" onchange="value = this.value" required name="sumber_informasi">
+                            <select class="form-control text-10" onchange="value = this.value" id="pilih-sumber" required name="sumber_informasi">
                                 <option class="text-10">--Silahkan pilih--</option>
                                 <option value="Teman">Teman</option>
                                 <option value="Brosur">Brosur</option>
@@ -429,49 +419,54 @@
                                 <label class="text-10 ml-4 mb-1">Kartu Tanda Penduduk</label>
                             </div>
                             <div class="row pl-4">
-                                <input type="file" id="unggah-ktp" name="foto_file" class="text-center text-12" style="height:25px; width:90%;">
+                                <!-- <input type="file" onChange='getoutput(event)' id="unggah-ktp" name="img_ktp" class="text-center text-12" style="height:25px; width:90%;"> -->
+                                <input type="file" onChange='getoutput(event)' id="unggah-ktp" name="foto_file" class="text-center text-12" style="height:25px; width:90%;">
                             </div>
                             <!-- <img src="" alt="" class="preview_img" id="preview1" style="width:30%;margin:20px auto;"> -->
                             <div class="row mt-2">
                                 <label class="text-10 ml-4 mb-1">Kartu Keluarga</label>
                             </div>
                             <div class="row pl-4">
-                                <input type="file" id="unggah-kk" name="foto_file_2" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                                <input type="file" onChange='getoutput2(event)' id="unggah-kk" name="foto_file2" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
                             </div>  
                             <!-- <img src="" alt="" class="preview_img" id="preview2" style="width:30%;margin:20px auto;"> -->
                             <div class="row mt-2">
                                 <label class="text-10 ml-4 mb-1">No Induk Siswa Nasional</label>
                             </div>
                             <div class="row pl-4">
-                                <input type="file" id="unggah-nisn" name="foto_file_3" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                                <input type="file" onChange='getoutput3(event)' id="unggah-nisn" name="foto_file3" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
                             </div>
                             <!-- <img src="" alt="" class="preview_img" id="preview3" style="width:30%;margin:20px auto;"> -->
                             <div class="row mt-2">
                                 <label class="text-10 ml-4 mb-1">Ijazah SMA/Sederajat</label>
                             </div>
                             <div class="row pl-4">
-                                <input type="file" id="unggah-ijazah" name="foto_file_4" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                                <input type="file" onChange='getoutput4(event)' id="unggah-ijazah" name="foto_file4" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
                             </div>
                             <!-- <img src="" alt="" class="preview_img" id="preview4" style="width:30%;margin:20px auto;"> -->
                             <div class="row mt-2">
                                 <label class="text-10 ml-4 mb-1">Foto</label>
                             </div>
                             <div class="row pl-4 mb-2">
-                                <input type="file" id="unggah-foto" name="foto_file_5" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                                <input type="file" onChange='getoutput5(event)' id="unggah-foto" name="foto_file5" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
                             </div>
                             <!-- <img src="" alt="" class="preview_img" id="preview5" style="width:30%;margin:20px auto;"> -->
                         </div>
                     </div>
                     <div class="row mt-2"> 
                         <div class="col-6 text-right pr-1">
+                            <a href="point_of_interest.html">
                             <button class="btn btn-outline-warning next-daftar-2 text-center py-0" id="back-pendukung">
                                 <label class="text-12 font-weight-bold text-orange mb-0">BACK</label>
                             </button>
+                            </a>
                         </div>
                         <div class="col-6 text-left pl-1">
+                            <!-- <a href="#"> -->
                             <button class="btn btn-warning next-daftar-2 text-center py-0" id="next-pendukung">
                                 <label class="text-12 font-weight-bold text-white mb-0">NEXT</label>
                             </button>
+                            <!-- </a> -->
                         </div>
                     </div>
             </div> 
@@ -571,10 +566,8 @@
                         <p class="text-12 py-3">Terima kasih telah melakukan pendaftaran online. Untuk informasi lebih lanjut kami akan menghubungi anda melalui aplikasi ini.</p>
                         <div class="row">
                             <div class="col-12 text-center">
-                                <a href="dashboard.html">
-                                    <button class="btn btn-warning welcome-next">
-                                        <label class="font-weight-bold text-16 mb-0 text-white">OK</label>
-                                    </button>
+                                <a class="btn btn-warning welcome-next font-weight-bold text-16 mb-0 text-white" id="ok-daftar">
+                                    OK
                                 </a>
                             </div>
                         </div>
@@ -643,7 +636,7 @@
         //personal
         $("#next-personal").on('click', function (e) {
             e.preventDefault();
-            $("#detail-personal-data").show()
+            // $("#detail-personal-data").show()
             $("#data-riwayat").show();
             $("#personal-data").hide();
 
@@ -654,6 +647,19 @@
             $("#back-riwayat").show();
             $("#back-point").hide();
             $("#back-pendukung").hide();
+
+            localStorage.setItem('input_nama', $('#input-nama').val() );
+            localStorage.setItem('input_gender', $('#input-gender').val() );
+            localStorage.setItem('input_tanggal', $('#input-tanggal').val() );
+            localStorage.setItem('input_tempat', $('#input-tempat').val() );
+            localStorage.setItem('input_agama', $('#input-agama').val() );
+            localStorage.setItem('input_kota', $('#input-kota').val() );
+            localStorage.setItem('input_kecamatan', $('#input-kecamatan').val() );
+            localStorage.setItem('input_desa', $('#input-desa').val() );
+            localStorage.setItem('input_alamat', $('#input-alamat').val() );
+            localStorage.setItem('input_phone', $('#input-phone').val() );
+            localStorage.setItem('input_nik', $('#input-nik').val() );
+            localStorage.setItem('input_nisn', $('#input-nisn').val() );
         });
         //riwayat
         $("#next-riwayat").on('click', function (e) {
@@ -669,6 +675,11 @@
             $("#back-riwayat").hide();
             $("#back-point").show();
             $("#back-pendukung").hide();
+
+            localStorage.setItem('input_asal_sma', $('#asal-sma').val() );
+            localStorage.setItem('input_alamat_sma', $('#alamat-sma').val() );
+            localStorage.setItem('input_nama_kantor', $('#nama-kantor').val() );
+            localStorage.setItem('input_alamat_kantor', $('#alamat-kantor').val() );
         });
         $("#back-riwayat").on('click', function (e) {
             e.preventDefault();
@@ -700,6 +711,10 @@
             $("#back-pendukung").show();
             $("#cancel-pendukung").show();
             $('#save').show();
+
+            localStorage.setItem('input_prodi', $('#pilih-prodi').val() );
+            localStorage.setItem('input_waktu', $('#pilih-waktu').val() );
+            localStorage.setItem('input_gelombang', $('#pilih-gelombang').val() );
         });
         $("#back-point").on('click', function (e) {
             e.preventDefault();
@@ -721,6 +736,13 @@
             e.preventDefault();
             $("#detail-personal-data").show();
             $('#modal-konfirmasi-daftar').modal("show");
+
+            localStorage.setItem('input_sumber', $('#pilih-sumber').val() );
+            localStorage.setItem('input_img_ktp', outputfile +'.' + extension );
+            localStorage.setItem('input_img_kk', outputfile2 +'.' + extension2 );
+            localStorage.setItem('input_img_nisn', outputfile3 +'.' + extension3 );
+            localStorage.setItem('input_img_ijazah', outputfile4 +'.' + extension4 );
+            localStorage.setItem('input_img_foto',  outputfile5 +'.' + extension5 );
         });
         $("#back-pendukung").on('click', function (e) {
             e.preventDefault();
@@ -751,31 +773,100 @@
            $("#modal-maintenance").modal("show");
         };
 
-        localStorage.setItem('input_nama', $('#input_nama').val );
-        localStorage.setItem('input_gender', $('#input-gender').val );
-        localStorage.setItem('input_nama', $('#input-tanggal').val );
-        localStorage.setItem('input_nama', $('#input-tempat').val );
-        localStorage.setItem('input_nama', $('#input-agama').val );
-        localStorage.setItem('input_nama', $('#input-kota').val );
-        localStorage.setItem('input_nama', $('#input-kecamatan').val );
-        localStorage.setItem('input_nama', $('#input-desa').val );
-        localStorage.setItem('input_nama', $('#input-alamat').val );
-        localStorage.setItem('input_nama', $('#input-nik').val );
-        localStorage.setItem('input_nama', $('#input-nisn').val );
-
-        localStorage.setItem('input_asal_sma', $('#asal-sma').val );
-        localStorage.setItem('input_alamat_sma', $('#alamat-sma').val );
-        localStorage.setItem('input_nama_kantor', $('#nama-kantor').val );
-        localStorage.setItem('input_alamat_kantor', $('#alamat-kantor').val );
+        var outputfile="";
+        var outputfile2="";
+        var outputfile3="";
+        var outputfile4="";
+        var outputfile5="";
+        var extension="";
+        var extension2="";
+        var extension3="";
+        var extension4="";
+        var extension5="";
         
+        function getoutput(event) {
+
+            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+                return;
+            }
+            const name = event.target.files[0].name;
+            const lastDot = name.lastIndexOf('.');
+
+            const fileName = name.substring(0, lastDot);
+            const ext = name.substring(lastDot + 1);
+
+            outputfile = fileName;
+            extension = ext;
+
+        }
+        function getoutput2(event) {
+
+            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+                return;
+            }
+            const name = event.target.files[0].name;
+            const lastDot = name.lastIndexOf('.');
+
+            const fileName = name.substring(0, lastDot);
+            const ext = name.substring(lastDot + 1);
+
+            outputfile2 = fileName;
+            extension2 = ext;
+
+        }
+        function getoutput3(event) {
+
+            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+                return;
+            }
+            const name = event.target.files[0].name;
+            const lastDot = name.lastIndexOf('.');
+
+            const fileName = name.substring(0, lastDot);
+            const ext = name.substring(lastDot + 1);
+
+            outputfile3 = fileName;
+            extension3 = ext;
+
+        }
+        function getoutput4(event) {
+
+            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+                return;
+            }
+            const name = event.target.files[0].name;
+            const lastDot = name.lastIndexOf('.');
+
+            const fileName = name.substring(0, lastDot);
+            const ext = name.substring(lastDot + 1);
+
+            outputfile4 = fileName;
+            extension4 = ext;
+
+        }
+        function getoutput5(event) {
+
+            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+                return;
+            }
+            const name = event.target.files[0].name;
+            const lastDot = name.lastIndexOf('.');
+
+            const fileName = name.substring(0, lastDot);
+            const ext = name.substring(lastDot + 1);
+
+            outputfile5 = fileName;
+            extension5 = ext;
+
+        }
         //input personal sudah bisa
-        $('#personal-data').submit(function(e){      
+        $('#input-personal-data').submit(function(e){      
             e.preventDefault();      
             $.ajax( {
             type :"post",
-            url : "http://localhost/unmer/unmer/request_user/edit",
+            url : "http://localhost/unmerbaya-pmb-backend/unmer/request_user/input_pendaftaran_online",
             cache :false,
-            data: new FormData($('#my-profile')[0]),
+            data: new FormData($('#input-personal-data')[0]),
             processData: false,
             contentType: false,
             dataType: 'json',
@@ -783,7 +874,7 @@
                 if(data.auth_message == 'success'){
                     
                 } else{
-                    $('#notification-fail').show();
+                    alert('Network error!');
                 }
             },
             error : function() {
@@ -826,7 +917,8 @@
 
 
         //input personal belum
-        $('#detail-personal-data').submit(function(e){
+        // $('#detail-personal-data').submit(function(e){
+        $('#ok-daftar').on('click',function(e){
             e.preventDefault();
             $.ajax( {
             type :"post",
