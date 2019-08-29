@@ -1,0 +1,521 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Universitas Merdeka Surabaya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="Realty In Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+  SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap-grid.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/profil.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.wmuSlider.js"></script>
+  <script src="js/jquery-2.2.3.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/aos.js"></script>
+  <style>
+  body{
+    font-family: "Century Gothic";
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-light bg-white py-1 shadow-sm">
+        <div class="row ml-0">
+            <div class="col-3 pl-0 pr-4">
+                <a class="nav-link text-center py-1 px-1" href="welcome.html">
+                    <img src="images/unmerbaya.png" style="height: 40px;">
+                </a>
+            </div>
+             <div class="col-6 px-0">
+                <a class="nav-link text-center py-1 px-1" href="#">
+                    <label class="font-weight-bold text-10 text-dark mb-0">Penerimaan Mahasiswa Baru</label>
+                    <label class="font-weight-bold text-10 text-dark mb-0">UNIVERSITAS MERDEKA SURABAYA</label>
+                </a>
+            </div>
+            <div class="col-2 pl-0 pr-0 text-right">
+                <a class="nav-link text-center py-1 px-1" href="#">
+                    <img src="images/send.png" style="height: 30px;" class="mt-2">
+                </a>
+            </div>
+            <div class="col-1 pl-0">
+                <span class="badge badge-danger badge-notif">4</span>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar fixed-bottom navbar-light bg-white py-1">
+        <a class="nav-link text-center py-1 px-1" href="dashboard.html">
+             <img src="images/home_hitam.png" style="height: 22px;"><br>
+            <label class="text-dark text-10 mb-0">Home</label>
+        </a>
+        <a class="nav-link text-center py-1 px-1" href="personal_data.html">
+            <img src="images/register_orange.png" style="height: 22px;"><br>
+            <label class="text-orange text-10 mb-0">Register</label>
+            </a>
+        <a class="nav-link text-center py-1 px-1" href="#" onclick="maintenance()">
+            <img src="images/team.png" style="height: 22px;"><br>
+            <label class="text-dark text-10 mb-0">Tryout</label>
+        </a>
+        <a class="nav-link text-center py-1 px-1" href="result.html">
+            <img src="images/curriculum.png" style="height: 22px;"><br>
+            <label class="text-dark text-10 mb-0">Result</label>
+        </a>
+        <a class="nav-link text-center py-1 px-1" href="my_account.html">
+            <img src="images/my_account_hitam.png" style="height: 22px;"><br>
+            <label class="text-dark text-10 mb-0">Account</label>
+        </a>
+    </nav>
+    
+    
+    <div class="container pendaftaran-online">         
+        <form id="detail-personal-data">
+        <!-- Data Pendukung -->
+            <div id="data-pendukung">
+                <p class="font-weight-bold text-center mb-0 ml-2 text-11">Pendaftaran Online Mahasiswa Baru </p>
+                <p class="font-weight-bold text-center mb-0 ml-2 text-11">UNIVERSITAS MERDEKA SURABAYA</p>
+                <p class="font-weight-bold text-center mb-0 ml-2 text-11">Tahun Akademik 2019/2020</p>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="wrapper-progressBar">
+                            <ul class="progressBar">
+                                <li class="active text-9" id="stepper-1">PERSONAL DATA</li>
+                                <li class="active text-9 text-dark" id="stepper-2">RIWAYAT</li>
+                                <li class="active text-9 text-dark" id="stepper-3">POINT OF INTEREST</li>
+                                <li class="active text-9 text-dark" id="stepper-4">DATA PENDUKUNG</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <label class="text-14 font-weight-bold mb-0 mt-1">Data Pendukung</label>     
+
+                    <div class="row mt-2">
+                        <div class="col-4" style="padding-right: 0;">
+                            <label class="text-10">Anda mengetahui UNMERBAYA dari </label>
+                        </div>
+                        <div class="col-8" style="padding-left: 20px;">
+                            <select class="form-control text-10" onchange="value = this.value" id="pilih-sumber" required name="sumber_informasi">
+                                <option class="text-10">--Silahkan pilih--</option>
+                                <option value="Teman">Teman</option>
+                                <option value="Brosur">Brosur</option>
+                                <option value="Sosial Media">Sosial Media</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-4" style="padding-right: 10;">
+                            <label class="text-10">File Terlampir</label>
+                        </div>
+                        <div class="col-7" style="padding-left: 0px; border: 1px lightgray solid; border-radius:5px; margin : 0px 7px 10px 18px; width:60%">
+                            <div class="row">
+                                <label class="text-10 ml-4 mb-1">Kartu Tanda Penduduk</label>
+                            </div>
+                            <div class="row pl-4">
+                                <input type="file" onChange='getoutput(event)' id="unggah-ktp" name="img_ktp" class="text-center text-12" style="height:25px; width:90%;">
+                            </div>
+                            <!-- <img src="" alt="" class="preview_img" id="preview1" style="width:30%;margin:20px auto;"> -->
+                            <div class="row mt-2">
+                                <label class="text-10 ml-4 mb-1">Kartu Keluarga</label>
+                            </div>
+                            <div class="row pl-4">
+                                <input type="file" onChange='getoutput2(event)' id="unggah-kk" name="img_kk" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                            </div>  
+                            <!-- <img src="" alt="" class="preview_img" id="preview2" style="width:30%;margin:20px auto;"> -->
+                            <div class="row mt-2">
+                                <label class="text-10 ml-4 mb-1">No Induk Siswa Nasional</label>
+                            </div>
+                            <div class="row pl-4">
+                                <input type="file" onChange='getoutput3(event)' id="unggah-nisn" name="img_nisn" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                            </div>
+                            <!-- <img src="" alt="" class="preview_img" id="preview3" style="width:30%;margin:20px auto;"> -->
+                            <div class="row mt-2">
+                                <label class="text-10 ml-4 mb-1">Ijazah SMA/Sederajat</label>
+                            </div>
+                            <div class="row pl-4">
+                                <input type="file" onChange='getoutput4(event)' id="unggah-ijazah" name="img_ijazah" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                            </div>
+                            <!-- <img src="" alt="" class="preview_img" id="preview4" style="width:30%;margin:20px auto;"> -->
+                            <div class="row mt-2">
+                                <label class="text-10 ml-4 mb-1">Foto</label>
+                            </div>
+                            <div class="row pl-4 mb-2">
+                                <input type="file" onChange='getoutput5(event)' id="unggah-foto" name="photo" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                            </div>
+                            <!-- <img src="" alt="" class="preview_img" id="preview5" style="width:30%;margin:20px auto;"> -->
+                        </div>
+                    </div>
+                    <div class="row mt-2"> 
+                        <div class="col-6 text-right pr-1">
+                            <a href="point_of_interest.html">
+                            <button class="btn btn-outline-warning next-daftar-2 text-center py-0" id="back-pendukung">
+                                <label class="text-12 font-weight-bold text-orange mb-0">BACK</label>
+                            </button>
+                            </a>
+                        </div>
+                        <div class="col-6 text-left pl-1">
+                            <a href="#">
+                            <button class="btn btn-warning next-daftar-2 text-center py-0" id="next-pendukung">
+                                <label class="text-12 font-weight-bold text-white mb-0">NEXT</label>
+                            </button>
+                            </a>
+                        </div>
+                    </div>
+            </div> 
+        </form>
+        
+        <!-- popup-konfirmasi -->
+        <div class="modal fade modal-notif" id="modal-konfirmasi-daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog px-3">
+                <div class="modal-content">
+                    <div class="top-content-style text-center shadow-sm">
+                      <div class="row ml-0 mb-0">
+                        <div class="col-4 pr-2 py-2 bg-orange">
+                          <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
+                        </div>
+                        <div class="col-8 py-2 pl-2">
+                          <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-content-w3pvt mt-2 text-left px-3">
+                        <p class="text-12">Anda akan mengajukan pendaftaran sebagai mahasiswa baru UNIVERSITAS MERDEKA SURABAYA tahun akademik 2019/2020.</p>
+                        <p class="text-12">Bersama ini juga anda menyatakan bahwa data yang anda isikan benar.</p>
+                        <p class="text-12">Apakah anda yakin ?</p>
+                        <div class="row">
+                            <div class="col-6 pr-1">
+                                <a href="#">
+                                    <button class="btn btn-outline-warning popup-yesno" onclick="cancel()">
+                                        <label class="font-weight-bold text-16 mb-0 text-orange">TIDAK</label>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col-6 pl-1">
+                                <a href="#">
+                                    <button class="btn btn-warning popup-yesno" id="ya-daftar">
+                                        <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- konfirmasi cancel -->
+        <div class="modal fade modal-notif" id="modal-konfirmasi-cancel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog px-3">
+                <div class="modal-content">
+                    <div class="top-content-style text-center shadow-sm">
+                      <div class="row ml-0 mb-0">
+                        <div class="col-4 pr-2 py-2 bg-orange">
+                          <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
+                        </div>
+                        <div class="col-8 py-2 pl-2">
+                          <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-content-w3pvt mt-2 text-left px-0">
+                       <p class="text-12 py-4">Apakah anda yakin akan melakukan CANCEL ?</p>
+                        <div class="row">
+                            <div class="col-6 pr-1">
+                                <a href="#" data-dismiss="modal">
+                                    <button class="btn btn-outline-warning popup-yesno">
+                                        <label class="font-weight-bold text-16 mb-0 text-orange">TIDAK</label>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col-6 pl-1">
+                                <a href="dashboard.html">
+                                    <button class="btn btn-warning popup-yesno">
+                                        <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- popup terimakasih -->
+        <div class="modal fade modal-notif" id="modal-terimakasih" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog px-3">
+                <div class="modal-content">
+                    <div class="top-content-style text-center shadow-sm">
+                      <div class="row ml-0 mb-0">
+                        <div class="col-4 pr-2 py-2 bg-orange">
+                          <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
+                        </div>
+                        <div class="col-8 py-2 pl-2">
+                          <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-content-w3pvt mt-2 text-left px-3">
+                        <p class="text-12 py-3">Terima kasih telah melakukan pendaftaran online. Untuk informasi lebih lanjut kami akan menghubungi anda melalui aplikasi ini.</p>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <a href="dashboard.html">
+                                    <button class="btn btn-warning welcome-next">
+                                        <label class="font-weight-bold text-16 mb-0 text-white">OK</label>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- popup maintenance -->
+        <div class="modal fade modal-notif" id="modal-maintenance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog px-3">
+                <div class="modal-content">
+                    <div class="top-content-style text-center shadow-sm">
+                      <div class="row ml-0 mb-0">
+                        <div class="col-4 pr-2 py-2 bg-orange">
+                          <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
+                        </div>
+                        <div class="col-8 py-2 pl-2">
+                          <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-content-w3pvt mt-2 text-left px-3">
+                        <p class="text-12">Mohon maaf, untuk hari  ini fitur sedang dalam  pengembangan. Demi kesempurnaan aplikasi TERAS KAMPUS UNMER SURABAYA, saran dan masukan sangat kami butuhkan.</p>
+                        <p class="text-12">Apakah anda akan memberikan saran ?</p>
+                        <div class="row">
+                            <div class="col-6 pr-1">
+                                <a href="#" data-dismiss="modal">
+                                    <button class="btn btn-outline-warning popup-yesno">
+                                        <label class="font-weight-bold text-16 mb-0 text-orange">TIDAK</label>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col-6 pl-1">
+                                <a href="saran.html">
+                                    <button class="btn btn-warning popup-yesno">
+                                        <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
+                                    </button>
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+  <script>
+        // function konfirmasi_daftar(){
+        //     $("#modal-konfirmasi-daftar").modal('show');            
+        // }
+
+        var outputfile="";
+        var outputfile2="";
+        var outputfile3="";
+        var outputfile4="";
+        var outputfile5="";
+        var extension="";
+        var extension2="";
+        var extension3="";
+        var extension4="";
+        var extension5="";
+        function getoutput(event) {
+
+            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+                return;
+            }
+            const name = event.target.files[0].name;
+            const lastDot = name.lastIndexOf('.');
+
+            const fileName = name.substring(0, lastDot);
+            const ext = name.substring(lastDot + 1);
+
+            outputfile = fileName;
+            extension = ext;
+
+        }
+        function getoutput2(event) {
+
+            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+                return;
+            }
+            const name = event.target.files[0].name;
+            const lastDot = name.lastIndexOf('.');
+
+            const fileName = name.substring(0, lastDot);
+            const ext = name.substring(lastDot + 1);
+
+            outputfile2 = fileName;
+            extension2 = ext;
+
+        }
+        function getoutput3(event) {
+
+            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+                return;
+            }
+            const name = event.target.files[0].name;
+            const lastDot = name.lastIndexOf('.');
+
+            const fileName = name.substring(0, lastDot);
+            const ext = name.substring(lastDot + 1);
+
+            outputfile3 = fileName;
+            extension3 = ext;
+
+        }
+        function getoutput4(event) {
+
+            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+                return;
+            }
+            const name = event.target.files[0].name;
+            const lastDot = name.lastIndexOf('.');
+
+            const fileName = name.substring(0, lastDot);
+            const ext = name.substring(lastDot + 1);
+
+            outputfile4 = fileName;
+            extension4 = ext;
+
+        }
+        function getoutput5(event) {
+
+            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+                return;
+            }
+            const name = event.target.files[0].name;
+            const lastDot = name.lastIndexOf('.');
+
+            const fileName = name.substring(0, lastDot);
+            const ext = name.substring(lastDot + 1);
+
+            outputfile5 = fileName;
+            extension5 = ext;
+
+        }
+        
+        function cancel(){
+            $("#modal-konfirmasi-daftar").modal('hide');
+            $("#modal-konfirmasi-cancel").modal('show');
+        }
+        function terimakasih(){
+            $("#modal-konfirmasi-daftar").modal('hide');
+            $("#modal-terimakasih").modal('show');
+        }
+        function maintenance(){
+           $("#modal-maintenance").modal("show");
+        };
+
+        $("#next-pendukung").on("click", function(e){
+            localStorage.setItem('input_sumber', $('#pilih-sumber').val() );
+            localStorage.setItem('input_img_ktp', outputfile +'.' + extension );
+            localStorage.setItem('input_img_kk', outputfile2 +'.' + extension2 );
+            localStorage.setItem('input_img_nisn', outputfile3 +'.' + extension3 );
+            localStorage.setItem('input_img_ijazah', outputfile4 +'.' + extension4 );
+            localStorage.setItem('input_img_foto',  outputfile5 +'.' + extension5 );
+
+            $("#modal-konfirmasi-daftar").modal('show'); 
+        });
+
+        // konfirmasi ya
+        $("#ya-daftar").on("click", function(e){
+            e.preventDefault();
+            
+            $.ajax( {
+            type :"post",
+            url : "http://localhost:81/unmer-pmb/unmer/request/input_data_pendaftaran",
+            cache :false,
+            data: {
+                //personal
+                name : localStorage.getItem('input_nama'),
+                gender : localStorage.getItem('input_gender'),
+                tgl_lahir : localStorage.getItem('input_tanggal'),
+                tempat_lahir : localStorage.getItem('input_tempat'),
+                agama : localStorage.getItem('input_agama'),
+                kota : localStorage.getItem('input_kota'),
+                kecamatan : localStorage.getItem('input_kecamatan'),
+                desa : localStorage.getItem('input_desa'),
+                alamat : localStorage.getItem('input_alamat'),
+                phone : localStorage.getItem('input_phone'),
+                nik : localStorage.getItem('input_nik'),
+                nisn : localStorage.getItem('input_nisn'),
+                //riwayat
+                sekolah_asal : localStorage.getItem('input_asal_sma'),
+                alamat_sekolah_asal : localStorage.getItem('input_alamat_sma'),
+                nama_kantor : localStorage.getItem('input_nama_kantor'),
+                alamat_kantor : localStorage.getItem('input_alamat_kantor'),
+                //poi
+                prodi : localStorage.getItem('input_prodi'),
+                waktu : localStorage.getItem('input_waktu'),
+                gelombang : localStorage.getItem('input_gelombang'),
+                //pendukung
+                sumber_informasi : localStorage.getItem('input_sumber'),
+                foto_file : localStorage.getItem('input_img_ktp'),
+                foto_file2 : localStorage.getItem('input_img_kk'),
+                foto_file3 : localStorage.getItem('input_img_nisn'),
+                foto_file4 : localStorage.getItem('input_img_ijazah'),
+                foto_file5 : localStorage.getItem('input_img_foto'),
+            },
+            dataType: 'json',
+            success : function(data) {
+                if(data.auth_message == 'success'){
+                    terimakasih();
+                    document.getElementById("input-nama").disabled = true;
+                    document.getElementById("input-gender").disabled = true;
+                    document.getElementById("input-tanggal").disabled = true;
+                    document.getElementById("input-tempat").disabled = true;
+                    document.getElementById("input-agama").disabled = true;
+                    document.getElementById("input-kota").disabled = true;
+                    document.getElementById("input-kecamatan").disabled = true;
+                    document.getElementById("input-desa").disabled = true;
+                    document.getElementById("input-alamat").disabled = true;
+                    document.getElementById("input-nik").disabled = true;
+                    document.getElementById("input-nisn").disabled = true;
+
+                    document.getElementById("asal-sma").disabled = true;
+                    document.getElementById("alamat-sma").disabled = true;
+                    document.getElementById("nama-kantor").disabled = true;
+                    document.getElementById("alamat-kantor").disabled = true;
+
+                    document.getElementById("pilih-prodi").disabled = true;
+                    document.getElementById("pilih-waktu").disabled = true;
+                    document.getElementById("pilih-gelombang").disabled = true;
+
+                    document.getElementById("pilih-sumber").disabled = true;
+                    document.getElementById("unggah-ktp").disabled = true;
+                    document.getElementById("unggah-kk").disabled = true;
+                    document.getElementById("unggah-nisn").disabled = true;
+                    document.getElementById("unggah-ijazah").disabled = true;
+                    document.getElementById("unggah-foto").disabled = true;
+                } 
+                else{
+                    $('#notification-fail').show();
+                }
+            },
+            error : function() {
+                alert('Network error!');
+            }
+            });
+            return false; 
+        });
+  </script>
+</body>
+</html>

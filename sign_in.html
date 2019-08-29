@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Universitas Merdeka Surabaya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap-grid.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.wmuSlider.js"></script>
+  <script src="js/jquery-2.2.3.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/aos.js"></script>
+</head>
+<style>
+  body{
+    font-family: "Century Gothic";
+    background-image: url(images/BG_login.jpg);
+    height: auto;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>
+<body>
+<div class="container-login">
+  <div class="text-center">
+    <img width="80%" src="images/logo_unmer1.png" alt="">
+  </div>
+    <div class="col-12 text-center">
+      <label class="font-weight-normal text-16 text-white text-center">Universitas Merdeka Surabaya</label>
+    </div>
+
+    <div class="col-12 mt-4 text-center">
+      <form class="px-5" id="login-form">
+        <div class="row form-group">
+          <div class="col-12">
+            <div class="form-input-login">
+            <div class="row">
+              <div class="col-2 text-center">
+                <div class="bulat-orange ml-2">
+                    <img src="images/icon/user_login.png" class="login-icon">
+                </div>
+              </div>
+              <div class="col-10">
+                <input type="text" name="username" class="form-control login font-weight-light" placeholder="Username">
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-12">
+            <div class="form-input-login">
+            <div class="row">
+              <div class="col-2 text-center">
+                <div class="bulat-orange ml-2">
+                    <img src="images/icon/password.png" class="login-icon">
+                </div>
+              </div>
+              <div class="col-10">
+                <input type="password" name="password" class="form-control login font-weight-light" placeholder="Password">
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row form-group mb-0">
+          <div class="col-12">
+              <!-- <a href="welcome.html"> -->
+                <button type="submit" class="btn btn-warning btn-login" width="100%">
+                  <label class="font-weight-bold text-16 mb-0 text-white">LOGIN</label>
+                </button>
+              <!-- </a> -->
+          </div>
+          <div class="col-12 mt-3">
+              <a href="sign_up.html">
+                <button type="submit" class="btn btn-outline-warning btn-login" width="100%">
+                  <label class="font-weight-bold text-16 mb-0 text-white">SIGN UP</label>
+                </button>
+              </a>
+          </div>
+        </div>
+        <a href="forget_password.html">
+          <p class="font-weight-light text-12 text-right text-white mt-1 mr-2">Forget Password?</p>
+        </a>
+      </form>
+
+      <div class="version-bottom">
+        <p class="font-weight-light text-14 text-center text-white">Teras Kampus © 2019<br> V.1.0</p>
+      </div>
+    </div>
+
+    <!-- popup failed -->
+    <div class="modal fade modal-notif" id="modal-failed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog px-3">
+          <div class="modal-red px-2 py-2 text-center">
+              <p class="text-18 text-white font-weight-bold">Login Failed!</p>
+              <p class="text-16 text-white">Please Check your username and password! </p>
+          </div>
+          </div>
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  $('#login-form').on('submit', function(e){
+    e.preventDefault();
+			$.ajax( {
+				type :"post",
+				url : "http://localhost/unmer-pmb/unmer/request/login",
+				cache :false,
+				data: $(this).serialize(),
+				dataType: 'json',
+				success : function(data) {
+					if(data.auth_message == 'success'){
+						localStorage.setItem('id',data.login_data.id);
+						localStorage.setItem('name',data.login_data.name);
+						localStorage.setItem('phone',data.login_data.phone);
+						localStorage.setItem('email',data.login_data.email);
+						localStorage.setItem('pass',data.login_data.pass);
+						localStorage.setItem('img',data.login_data.img);
+
+						$('#notification-fail').hide();
+						window.location = 'welcome.html';
+					} else{
+						// $('.tunggu').hide();
+						$('#notification-fail').show();
+					}
+				},
+				error : function() {
+					// $('.tunggu').hide();
+					alert('Network error!');
+				}
+			});
+			return false;
+		});
+
+
+</script>
+
+</body>
+</html>

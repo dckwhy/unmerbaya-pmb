@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/bootstrap-4.3.1.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/font-awesome-4.7.0.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        body,input,textarea{
+            font-family: "Century Gothic";
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-light bg-white shadow-sm py-0">
+        <a class="navbar-brand text-white text-left py-2 mr-0 ml-2" href="dashboard.html">
+            <label class="text-16 text-orange font-weight-bold">Saran dan Masukan</label>
+        </a>
+        <a class="navbar-brand text-white  text-right px-0 mb-1 py-1 text-right mr-0" href="dashboard.html">
+          <img src="images/close_hitam.png" class="icon-close">
+        </a>
+    </nav>
+    
+    <div class="saran">
+        <form class="form-horizontal px-2" id="data-cust">
+            <div class="form-group mb-0">
+              <div class="col-12">          
+                <label class="text-11 font-weight-bold mb-0">Nama</label>
+                <label class="text-10 text-orange mb-0">*</label>
+                <input type="text" class="form-control field text-11 shadow-sm bg-white" id="nama" placeholder="John Se" required>
+              </div>
+            </div>
+            <div class="form-group mb-0">
+              <div class="col-12"> 
+                <label class="text-11 font-weight-bold mb-0">NIM</label>   
+                <label class="text-10 text-orange mb-0">*</label>       
+                <input type="text" class="form-control field text-11 shadow-sm bg-white" id="nim" placeholder="3510123456789" required>
+              </div>
+            </div>
+            <div class="form-group mb-0">
+              <div class="col-12">
+                <label class="text-11 font-weight-bold mb-0">Email </label> 
+                <label class="text-10 text-orange mb-0">*</label>                   
+                <input type="email" class="form-control field text-11 shadow-sm bg-white" id="email" placeholder="john@unmersurabaya.ac.id" required>  
+              </div>
+            </div>
+            <div class="form-group mb-0">
+              <div class="col-12">
+                <label class="text-11 font-weight-bold mb-0">No. Telephone </label> 
+                <label class="text-10 text-orange mb-0">*</label>                   
+                <input type="email" class="form-control field text-11 shadow-sm bg-white" id="email" placeholder="082223334510" required>  
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-12">
+                <label class="text-11 font-weight-bold mb-0">Tulis Pesan </label>                   
+                <textarea rows="15" type="email" class="form-control field text-11 shadow-sm bg-white" id="pesan" placeholder="Tulis pesan disini ..." required></textarea>
+              </div>
+            </div>
+            <div class="form-group mt-3">
+                <div class="col-12 text-center">      
+                    <a href="#" class="send-saran" onclick="thanks()">
+                        <button class="btn btn-warning welcome-next">
+                            <label class="text-14 text-white mb-0 font-weight-bold">KIRIM</label>
+                        </button>
+                    </a>
+                </div>
+              </div>
+        </form>
+
+        <!-- popup maintenance -->
+        <div class="modal fade modal-notif" id="modal-terimakasih" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog px-3">
+                <div class="modal-content">
+                    <div class="top-content-style text-center shadow-sm">
+                      <div class="row ml-0 mb-0">
+                        <div class="col-4 pr-2 py-2 bg-orange">
+                          <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
+                        </div>
+                        <div class="col-8 py-2 pl-2">
+                          <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-content-w3pvt mt-2 text-left px-3">
+                        <p class="text-12">Saran anda telah kami terima. Terima kasih telah berkontribusi dalam mendukung pengembangan aplikasi TERAS KAMPUS UNMER SURABAYA.</p>
+                        <p class="text-12">Silahkan tunggu update terbaru dari kami.</p>
+                        <div class="col-12 text-center">
+                            <a href="welcome.html">
+                                <button class="btn btn-warning welcome-next">
+                                    <label class="font-weight-bold text-16 mb-0 text-white">OK</label>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function thanks(){
+           $("#modal-terimakasih").modal("show");
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/bootstrap-4.3.1.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/font-awesome-4.7.0.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        body{
+            font-family: "Century Gothic";
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-light bg-white py-1 shadow-sm">
+        <div class="row ml-0">
+            <div class="col-3 pl-0 pr-4">
+                <a class="nav-link text-center py-1 px-1" href="welcome.html">
+                    <img src="images/unmerbaya.png" style="height: 40px;">
+                </a>
+            </div>
+            <div class="col-6 px-0">
+                <a class="nav-link text-center py-1 px-1" href="#">
+                    <label class="font-weight-bold text-10 text-dark mb-0">Penerimaan Mahasiswa Baru</label>
+                    <label class="font-weight-bold text-10 text-dark mb-0">UNIVERSITAS MERDEKA SURABAYA</label>
+                </a>
+            </div>
+            <div class="col-2 pl-0 pr-0 text-right">
+                <a class="nav-link text-center py-1 px-1" href="#">
+                    <img src="images/send.png" style="height: 30px;" class="mt-2">
+                </a>
+            </div>
+            <div class="col-1 pl-0">
+                <span class="badge badge-danger badge-notif">4</span>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar fixed-bottom navbar-light bg-white py-1">
+        <a class="nav-link text-center py-1 px-1" href="dashboard.html">
+             <img src="images/home_hitam.png" style="height: 22px;"><br>
+            <label class="text-dark text-12 mb-0">Home</label>
+        </a>
+        <a class="nav-link text-center py-1 px-1" href="personal_data.html">
+            <img src="images/register (2).png" style="height: 22px;"><br>
+            <label class="text-dark text-12 mb-0">Register</label>
+            </a>
+        <a class="nav-link text-center py-1 px-1" href="#" onclick="maintenance()">
+            <img src="images/team.png" style="height: 22px;"><br>
+            <label class="text-dark text-12 mb-0">Tryout</label>
+        </a>
+        <a class="nav-link text-center py-1 px-1" href="result.html">
+            <img src="images/curriculum.png" style="height: 22px;"><br>
+            <label class="text-dark text-12 mb-0">Result</label>
+        </a>
+        <a class="nav-link text-center py-1 px-1" href="my_account.html">
+            <img src="images/user_orange.png" style="height: 22px;"><br>
+            <label class="text-orange text-12 mb-0">Account</label>
+        </a>
+    </nav>
+    
+    <div class="container profile">
+    <div class="row">
+      <div class="col-12 mt-3 text-center">
+        <div class="box-avatar text-center">
+            <div class="col-12 text-center">
+                <div class="circle text-center">
+                    <img class="profile-pic" src="images/my_account_hitam.png">
+                </div>
+                <div class="p-image text-20">
+                    <i class="fa fa-camera upload-button"></i>
+                    <input class="file-upload" type="file" accept="image/*"/>
+                </div>
+            </div>
+          </div>
+          <div class="info">
+            <div class="title">
+              <p class="text-dark text-18 mb-0">Inas Nabila</p>
+            </div>
+            <div class="desc">
+              <a class="text-dark font-weight-bold text-12" href="#" id="edit-profil" onclick="enableform()">Edit Profile</a>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group px-3" id="my-profile">
+            <div class="col-12 text-left">
+                <label class="font-weight-bold mb-1 text-12" for="text">Nama</label>
+                <input type="text" class="form-control bg-white" placeholder="Jane Doe" id="name" disabled>    
+            </div>
+            <div class="col-12 text-left mt-2">
+                <label class="font-weight-bold pt-1 my-1 text-12" for="text">Nomor Telepon</label>
+                <input type="text" class="form-control bg-white" placeholder="+6281555300999" id="telp" disabled>          
+            </div>
+            <div class="col-12 text-left mt-2">
+                <label class="font-weight-bold pt-1 my-1 text-12" for="email">Email</label>
+                <input type="email" class="form-control bg-white" placeholder="janedoe@gmail.com" id="email" disabled>          
+            </div>
+            <div class="col-12 text-left mt-2">
+                <label class="font-weight-bold pt-1 my-1 text-12" for="text">Username</label>
+                <input type="text" class="form-control bg-white" placeholder="janedoe99" id="uname" disabled>          
+            </div>
+            <div class="col-12 text-left mt-2">
+                <label class="font-weight-bold pt-1 my-1 text-12" for="email">Password</label>
+                <input type="password" class="form-control bg-white" placeholder="********" id="password" disabled>          
+            </div>
+          </div>
+            <div class="row"> 
+                <div class="col-12 text-center">
+                    <a href="sign_in.html">
+                    <button class="btn btn-warning next-daftar text-center py-0" id="keluar">
+                        <label class="text-12 font-weight-bold text-white mb-0">KELUAR</label>
+                    </button>
+                    </a>
+                </div>
+            </div>
+            <div class="row mt-2"> 
+                <div class="col-12 text-center">
+                    <button class="btn btn-warning next-daftar text-center py-0" id="save" type="submit">
+                        <label class="text-12 font-weight-bold text-white mb-0">SAVE</label>
+                    </button>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>
+
+        <!-- popup konfirmasi -->
+        <div class="modal fade modal-notif" id="modal-konfirmasi-daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog px-3">
+                <div class="modal-content">
+                    <div class="top-content-style text-center shadow-sm">
+                      <div class="row ml-0 mb-0">
+                        <div class="col-4 pr-2 py-2 bg-orange">
+                          <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
+                        </div>
+                        <div class="col-8 py-2 pl-2">
+                          <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-content-w3pvt mt-2 text-left px-3">
+                        <p class="text-12">TERAS KAMPUS UNMER SURABAYA, merupakan aplikasi yang dirancang untuk memudahkan calon mahasiswa dalam melakukan pendaftaran online.</p>
+                        <p class="text-12">Apakaah anda akan mendaftar?</p>
+                        <div class="row">
+                          <div class="col-6 text-center">
+                            <a href="dashboard.html">
+                                <button class="btn btn-warning welcome-next">
+                                    <label class="font-weight-bold text-16 mb-0 text-white">OK</label>
+                                </button>
+                            </a>
+                          </div>
+                          <div class="col-6 text-center">
+                            <a href="pendaftaran_online.html">
+                                <button class="btn btn-warning welcome-next">
+                                    <label class="font-weight-bold text-16 mb-0 text-white">OK</label>
+                                </button>
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <!-- popup maintenance -->
+        <div class="modal fade modal-notif" id="modal-maintenance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog px-3">
+                <div class="modal-content">
+                    <div class="top-content-style text-center shadow-sm">
+                      <div class="row ml-0 mb-0">
+                        <div class="col-4 pr-2 py-2 bg-orange">
+                          <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
+                        </div>
+                        <div class="col-8 py-2 pl-2">
+                          <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-content-w3pvt mt-2 text-left px-3">
+                        <p class="text-12">Mohon maaf, untuk hari  ini fitur sedang dalam  pengembangan. Demi kesempurnaan aplikasi TERAS KAMPUS UNMER SURABAYA, saran dan masukan sangat kami butuhkan.</p>
+                        <p class="text-12">Apakah anda akan memberikan saran ?</p>
+                        <div class="row">
+                            <div class="col-6 pr-1">
+                                <a href="#" data-dismiss="modal">
+                                    <button class="btn btn-outline-warning popup-yesno">
+                                        <label class="font-weight-bold text-16 mb-0 text-orange">TIDAK</label>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col-6 pl-1">
+                                <a href="saran.html">
+                                    <button class="btn btn-warning popup-yesno">
+                                        <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
+                                    </button>
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <br><br><br>
+    </div>
+
+    <script>
+        function maintenance(){
+           $("#modal-maintenance").modal("show");
+        };
+        function enableform() {
+            document.getElementById("name").disabled = false;
+            document.getElementById("email").disabled = false;
+            document.getElementById("telp").disabled = false;
+            document.getElementById("uname").disabled = false;
+            document.getElementById("password").disabled = false;
+            $('#edit-profil').hide();
+            $('#save').show();
+            $('#keluar').hide();
+            $('.p-image').show();
+        }
+        $(document).ready(function(){
+            $('#save').hide();
+            $('.p-image').hide();
+
+            var readURL = function(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('.profile-pic').attr('src', e.target.result);
+                        }
+                    reader.readAsDataURL(input.files[0]);
+                    }
+            }
+            $(".file-upload").on('change', function(){
+                readURL(this);
+            });
+            $(".upload-button").on('click', function() {
+                $(".file-upload").click();
+            });
+        });
+        
+        $('#save').on('click', function(e){
+            $('#save').hide();
+            $('#keluar').show();
+            $('#edit-profil').show();
+            $('.p-image').hide();
+            document.getElementById("name").disabled = true;
+            document.getElementById("email").disabled = true;
+            document.getElementById("telp").disabled = true;
+            document.getElementById("uname").disabled = true;
+            document.getElementById("password").disabled = true;
+        });
+    </script>
+
+</body>
+</html>

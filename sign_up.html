@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Universitas Merdeka Surabaya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap-grid.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.wmuSlider.js"></script>
+  <script src="js/jquery-2.2.3.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/aos.js"></script>
+</head>
+<style>
+body{
+  font-family: "Century Gothic";
+  background-image: url(images/register-fix-01.png);
+  height: auto;
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style>
+<body>
+  <div class="container-register">
+    <div class="text-center">
+      <img width="70%" src="images/logo_unmer1.png" alt="">
+    </div>
+
+    <div class="col-12 text-center">
+      <label class="font-weight-normal text-16 text-white text-center">Universitas Merdeka Surabaya</label>
+    </div>
+
+    <div class="col-12 mt-2 text-center">
+      <form class="px-5" id="register-form">
+        <div class="row form-group mb-2">
+          <div class="col-12">
+            <div class="form-input-login">
+              <div class="row">
+                <div class="col-2 text-center">
+                  <div class="bulat-orange ml-2">
+                    <img src="images/curriculum_putih.png" class="login-icon">
+                  </div>
+                </div>
+                <div class="col-10">
+                  <input type="text" id="name" class="form-control login font-weight-light" placeholder="Nama" name="name" required>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group mb-2">
+          <div class="col-12">
+            <div class="form-input-login">
+              <div class="row">
+                <div class="col-2 text-center">
+                  <div class="bulat-orange ml-2">
+                    <img src="images/curriculum_putih.png" class="login-icon">
+                  </div>
+                </div>
+                <div class="col-10">
+                  <input type="text" name="phone" class="form-control login font-weight-light" placeholder="No Telp" required>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group mb-2">
+          <div class="col-12">
+            <div class="form-input-login">
+              <div class="row">
+                <div class="col-2 text-center">
+                  <div class="bulat-orange ml-2">
+                    <img src="images/curriculum_putih.png" class="login-icon">
+                  </div>
+                </div>
+                <div class="col-10">
+                  <input type="email" name="email" class="form-control login font-weight-light" placeholder="Email" required>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group mb-2">
+          <div class="col-12">
+            <div class="form-input-login">
+              <div class="row">
+                <div class="col-2 text-center">
+                  <div class="bulat-orange ml-2">
+                    <img src="images/curriculum_putih.png" class="login-icon">
+                  </div>
+                </div>
+                <div class="col-10">
+                  <input type="text" name="username" class="form-control login font-weight-light" placeholder="Username" required>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-12">
+            <div class="form-input-login">
+              <div class="row">
+                <div class="col-2 text-center">
+                  <div class="bulat-orange ml-2">
+                    <img src="images/curriculum_putih.png" class="login-icon">
+                  </div>
+                </div>
+                <div class="col-10">
+                  <input type="password" name="pass" class="form-control login font-weight-light" placeholder="Password" required>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group mb-0">
+          <div class="col-12">
+            <!-- <a href="#"> -->
+            <button type="submit" class="btn btn-warning btn-login" width="100%">
+              <label class="font-weight-bold text-16 mb-0 text-white">SIGN UP</label>
+            </button>
+            <!-- </a> -->
+          </div>
+        </div>
+
+        <p class="font-weight-light text-12 text-center text-white mt-1">Sudah punya akun? <a href="sign_in.html"><label class="text-orange font-weight-bold">Login disini</label></label></a></p>
+
+      </form>
+
+      <div class="version-bottom-register">
+        <p class="font-weight-light text-14 text-center text-white">Teras Kampus © 2019<br> V.1.0</p>
+      </div>
+    </div>
+
+    <!-- popup konfirmasi -->
+    <div class="modal fade modal-notif" id="modal-konfirmasi-daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog px-3">
+        <div class="modal-content">
+          <div class="top-content-style text-center shadow-sm">
+            <div class="row ml-0 mb-0">
+              <div class="col-4 pr-2 py-2 bg-orange">
+                <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
+              </div>
+              <div class="col-8 py-2 pl-2">
+                <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
+              </div>
+            </div>
+          </div>
+          <div class="bg-content-w3pvt mt-2 text-left px-3">
+            <p class="text-12">TERAS KAMPUS UNMER SURABAYA, merupakan aplikasi yang dirancang untuk memudahkan calon mahasiswa dalam melakukan pendaftaran online.</p>
+            <p class="text-12">Apakaah anda akan mendaftar?</p>
+            <div class="row">
+              <div class="col-6 text-center pr-1">
+                <a href="dashboard.html">
+                  <button class="btn btn-outline-warning popup-yesno">
+                    <label class="font-weight-bold text-16 mb-0 text-orange">TIDAK</label>
+                  </button>
+                </a>
+              </div>
+              <div class="col-6 text-center pl-1">
+                <a href="pendaftaran_online.html">
+                  <button class="btn btn-warning popup-yesno">
+                    <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <script>
+  $("#buat-akun").on("click", function(){
+  $("#modal-konfirmasi-daftar").modal('show');
+});
+
+</script> -->
+<script type="text/javascript">
+$('#register-form').on('submit', function(e){
+  e.preventDefault();
+  $.ajax( {
+    type :"post",
+    url : "http://localhost/unmer-pmb/unmer/request/register",
+    cache :false,
+    data: $(this).serialize(),
+    dataType: 'json',
+    success : function(data) {
+      if(data.auth_message == 'success'){
+        // $('#notification-fail').hide();
+        $("#modal-konfirmasi-daftar").modal('show');
+      } else{
+        // $('.tunggu').hide();
+        $('#notification-fail').show();
+      }
+    },
+    error : function() {
+      // $('.tunggu').hide();
+      alert('Network error!');
+    }
+  });
+  return false;
+});
+</script>
+
+</body>
+</html>

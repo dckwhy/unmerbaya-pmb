@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/bootstrap-4.3.1.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/font-awesome-4.7.0.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        body{
+            font-family: "Century Gothic";
+            background-color: rgb(231, 231, 231);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-light bg-white py-1 shadow-sm">
+        <div class="row ml-0">
+            <div class="col-3 pl-0 pr-4 mt-1">
+                <a class="nav-link text-center py-1 px-1" href="welcome.html">
+                    <img src="images/unmerbaya.png" style="height: 40px;">
+                </a>
+            </div>
+             <div class="col-6 px-0">
+                <a class="nav-link text-center py-1 px-1" href="#">
+                    <label class="font-weight-bold text-10 text-dark mb-0">Penerimaan Mahasiswa Baru</label>
+                    <label class="font-weight-bold text-10 text-dark mb-0">UNIVERSITAS MERDEKA SURABAYA</label>
+                </a>
+            </div>
+            <div class="col-2 pl-0 pr-0 text-right">
+                <a class="nav-link text-center py-1 px-1" href="#">
+                    <img src="images/send.png" style="height: 30px;" class="mt-2">
+                </a>
+            </div>
+            <div class="col-1 pl-0">
+                <span class="badge badge-danger badge-notif">4</span>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="navbar fixed-bottom navbar-light bg-white py-1">
+        <a class="nav-link text-center py-1 px-1" href="dashboard.html">
+             <img src="images/home_active.png" style="height: 22px;"><br>
+            <label class="text-orange text-12 mb-0">Home</label>
+        </a>
+        <a class="nav-link text-center py-1 px-1" href="personal_data.html">
+            <img src="images/register (2).png" style="height: 22px;"><br>
+            <label class="text-dark text-12 mb-0">Register</label>
+            </a>
+        <a class="nav-link text-center py-1 px-1" href="#" onclick="maintenance()">
+            <img src="images/team.png" style="height: 22px;"><br>
+            <label class="text-dark text-12 mb-0">Tryout</label>
+        </a>
+        <a class="nav-link text-center py-1 px-1" href="result.html">
+            <img src="images/curriculum.png" style="height: 22px;"><br>
+            <label class="text-dark text-12 mb-0">Result</label>
+        </a>
+        <a class="nav-link text-center py-1 px-1" href="my_account.html">
+            <img src="images/my_account_hitam.png" style="height: 22px;"><br>
+            <label class="text-dark text-12 mb-0">Account</label>
+        </a>
+    </nav>
+    
+    <div class="dashboard">
+        <div class="menu ml-3 mr-3 py-2">
+            <div class="row">
+                <div class="col-3 pr-1 text-center">
+                    <a href="#">
+                        <button type="submit" class="btn btn-warning btn-menu mt-1">
+                            <p class="font-weight-bold text-9 mb-0 text-white">SEMUA</p>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-3 px-1 text-center">
+                    <a href="#">
+                        <button type="submit" class="btn btn-outline-warning bg-white btn-menu mt-1">
+                            <p class="font-weight-bold text-8 mb-0 text-dark">PENDAFTARAN</p>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-3 px-1 text-center">
+                    <a href="#">
+                        <button type="submit" class="btn btn-outline-warning bg-white btn-menu mt-1">
+                            <p class="font-weight-bold text-9 mb-0 text-dark">JADWAL</p>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-3 pl-1 text-center">
+                    <img src="images/logo_unmer1.png" width="75%">
+                </div>
+            </div>
+        </div>
+        <div class="box-news px-4 py-2">
+            <div class="row">
+                <div class="col-2">
+                    <img src="images/unmerbaya.png" class="foto-ava-news">
+                </div>
+                <div class="col-10">
+                    <label class="nama text-11 font-weight-bold mb-0">Periode, Jalur, dan Syarat Pendaftaran Mahasiswa Baru Universitas Merdeka Surabaya Tahun Akademik 2019-2020</label>
+                </div>
+                <p class="text-fuchsia ml-3 text-11 mb-1">Kategori Umum / 24 Agustus 2019</p>
+            </div>
+            <div class="row px-3">
+                <p class="text-11 text-justify">
+                    Pada Gelombang I,II, dan III dilakukan penerimaan Mahasiswa Baru melalui Jalur Prestasi Akademik, Prestasi Non Akademik, Non Tes, dan Tes. UNDANGAN (tanpa test, Potongan DPP sampai dengan 50%)...
+                    <a href="#" onclick="maintenance()" class="text-orange">Read More</a>
+                </p>
+
+                <img src="images/prospek-kerja.jpg" class="foto-content">
+            </div>
+            <div class="ket-foto mt-2">
+                <div class="row ml-0">
+                    <div class="col-6 px-0 text-left">
+                        <p class="text-11 mb-0">1.032 Appreciate</p>
+                    </div>
+                    <div class="col-6 pl-2 text-right">
+                        <p class="text-11 mb-0">9 Hours Ago</p>                        
+                    </div>
+                </div>
+            </div>
+            <hr class="mb-2 mt-2">
+            <div class="action-foto">
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <a href="#" onclick="maintenance()">
+                            <img src="images/handshake.png" class="icon-action">
+                            <label class="text-dark text-10">Appreciate</label>
+                        </a>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="#" onclick="maintenance()">
+                            <img src="images/users.png" class="icon-action">
+                            <label class="text-dark text-10">Read</label>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-news px-4 py-2 mt-2">
+            <div class="row">
+                <div class="col-2">
+                    <img src="images/unmerbaya.png" class="foto-ava-news">
+                </div>
+                <div class="col-10">
+                    <label class="nama text-11 font-weight-bold mb-0">Periode, Jalur, dan Syarat Pendaftaran Mahasiswa Baru Universitas Merdeka Surabaya Tahun Akademik 2019-2020</label>
+                </div>
+                <p class="text-fuchsia ml-3 text-11 mb-1">Kategori Umum / 24 Agustus 2019</p>
+            </div>
+            <div class="row px-3">
+                <p class="text-11 text-justify">
+                    Pada Gelombang I,II, dan III dilakukan penerimaan Mahasiswa Baru melalui Jalur Prestasi Akademik, Prestasi Non Akademik, Non Tes, dan Tes. UNDANGAN (tanpa test, Potongan DPP sampai dengan 50%)...
+                    <a href="#" onclick="maintenance()" class="text-orange">Read More</a>
+                </p>
+
+                <img src="images/prospek-kerja.jpg" class="foto-content">
+            </div>
+            <div class="ket-foto mt-2">
+                <div class="row ml-0">
+                    <div class="col-6 px-0 text-left">
+                        <p class="text-11 mb-0">1.032 Appreciate</p>
+                    </div>
+                    <div class="col-6 pl-2 text-right">
+                        <p class="text-11 mb-0">9 Hours Ago</p>                        
+                    </div>
+                </div>
+            </div>
+            <hr class="mb-2 mt-2">
+            <div class="action-foto">
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <a href="#" onclick="maintenance()">
+                            <img src="images/handshake.png" class="icon-action">
+                            <label class="text-dark text-10">Appreciate</label>
+                        </a>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="#" onclick="maintenance()">
+                            <img src="images/users.png" class="icon-action">
+                            <label class="text-dark text-10">Read</label>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- popup konfirmasi -->
+        <div class="modal fade modal-notif" id="modal-konfirmasi-daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog px-3">
+                <div class="modal-content">
+                    <div class="top-content-style text-center shadow-sm">
+                      <div class="row ml-0 mb-0">
+                        <div class="col-4 pr-2 py-2 bg-orange">
+                          <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
+                        </div>
+                        <div class="col-8 py-2 pl-2">
+                          <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-content-w3pvt mt-2 text-left px-3">
+                        <p class="text-12">TERAS KAMPUS UNMER SURABAYA, merupakan aplikasi yang dirancang untuk memudahkan calon mahasiswa dalam melakukan pendaftaran online.</p>
+                        <p class="text-12">Apakaah anda akan mendaftar?</p>
+                        <div class="row">
+                          <div class="col-6 text-center">
+                            <a href="dashboard.html">
+                                <button class="btn btn-warning welcome-next">
+                                    <label class="font-weight-bold text-16 mb-0 text-white">OK</label>
+                                </button>
+                            </a>
+                          </div>
+                          <div class="col-6 text-center">
+                            <a href="pendaftaran_online.html">
+                                <button class="btn btn-warning welcome-next">
+                                    <label class="font-weight-bold text-16 mb-0 text-white">OK</label>
+                                </button>
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <!-- popup maintenance -->
+        <div class="modal fade modal-notif" id="modal-maintenance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog px-3">
+                <div class="modal-content">
+                    <div class="top-content-style text-center shadow-sm">
+                      <div class="row ml-0 mb-0">
+                        <div class="col-4 pr-2 py-2 bg-orange">
+                          <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
+                        </div>
+                        <div class="col-8 py-2 pl-2">
+                          <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-content-w3pvt mt-2 text-left px-3">
+                        <p class="text-12">Mohon maaf, untuk hari  ini fitur sedang dalam  pengembangan. Demi kesempurnaan aplikasi TERAS KAMPUS UNMER SURABAYA, saran dan masukan sangat kami butuhkan.</p>
+                        <p class="text-12">Apakah anda akan memberikan saran ?</p>
+                        <div class="row">
+                            <div class="col-6 pr-1">
+                                <a href="#" data-dismiss="modal">
+                                    <button class="btn btn-outline-warning popup-yesno">
+                                        <label class="font-weight-bold text-16 mb-0 text-orange">TIDAK</label>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col-6 pl-1">
+                                <a href="saran.html">
+                                    <button class="btn btn-warning popup-yesno">
+                                        <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
+                                    </button>
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <br><br><br>
+    </div>
+
+    <script>
+        function maintenance(){
+           $("#modal-maintenance").modal("show");
+        };
+    </script>
+
+</body>
+</html>
