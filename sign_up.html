@@ -140,44 +140,6 @@ body{
       </div>
     </div>
 
-    <!-- popup konfirmasi -->
-    <div class="modal fade modal-notif" id="modal-konfirmasi-daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog px-3">
-        <div class="modal-content">
-          <div class="top-content-style text-center shadow-sm">
-            <div class="row ml-0 mb-0">
-              <div class="col-4 pr-2 py-2 bg-orange">
-                <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
-              </div>
-              <div class="col-8 py-2 pl-2">
-                <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
-              </div>
-            </div>
-          </div>
-          <div class="bg-content-w3pvt mt-2 text-left px-3">
-            <p class="text-12">TERAS KAMPUS UNMER SURABAYA, merupakan aplikasi yang dirancang untuk memudahkan calon mahasiswa dalam melakukan pendaftaran online.</p>
-            <p class="text-12">Apakaah anda akan mendaftar?</p>
-            <div class="row">
-              <div class="col-6 text-center pr-1">
-                <a href="dashboard.html">
-                  <button class="btn btn-outline-warning popup-yesno">
-                    <label class="font-weight-bold text-16 mb-0 text-orange">TIDAK</label>
-                  </button>
-                </a>
-              </div>
-              <div class="col-6 text-center pl-1">
-                <a href="pendaftaran_online.html">
-                  <button class="btn btn-warning popup-yesno">
-                    <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <!-- <script>
@@ -199,12 +161,13 @@ $('#register-form').on('submit', function(e){
       if(data.auth_message == 'success'){
         // $('#notification-fail').hide();
         $("#modal-konfirmasi-daftar").modal('show');
-        localStorage.setItem('id', data.data_user.id);
-        localStorage.setItem('name', data.data_user.name);
-        localStorage.setItem('username', data.data_user.username);
-        localStorage.setItem('phone', data.data_user.phone);
-        localStorage.setItem('email', data.data_user.email);
-        localStorage.setItem('image', data.data_user.img);
+        localStorage.setItem('id', '');
+        localStorage.setItem('name', '');
+        localStorage.setItem('username', '');
+        localStorage.setItem('phone', '');
+        localStorage.setItem('email', '');
+        localStorage.setItem('image', '');
+        window.location = "dashboard.html";
       } else{
         // $('.tunggu').hide();
         $('#notification-fail').show();
