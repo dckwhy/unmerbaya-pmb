@@ -38,7 +38,7 @@
                     <img src="images/unmerbaya.png" style="height: 40px;">
                 </a>
             </div>
-             <div class="col-6 px-0">
+            <div class="col-6 px-0">
                 <a class="nav-link text-center py-1 px-1" href="#">
                     <label class="font-weight-bold text-10 text-dark mb-0">Penerimaan Mahasiswa Baru</label>
                     <label class="font-weight-bold text-10 text-dark mb-0">UNIVERSITAS MERDEKA SURABAYA</label>
@@ -122,7 +122,8 @@
                                 <label class="text-10 ml-4 mb-1">Kartu Tanda Penduduk</label>
                             </div>
                             <div class="row pl-4">
-                                <input type="file" onChange='getoutput(event)' id="unggah-ktp" name="img_ktp" class="text-center text-12" style="height:25px; width:90%;">
+                                <!-- <input type="file" onChange='getoutput(event)' id="unggah-ktp" name="img_ktp" class="text-center text-12" style="height:25px; width:90%;"> -->
+                                <input type="file" onChange='getoutput(event)' id="unggah-ktp" name="foto_file" class="text-center text-12" style="height:25px; width:90%;">
                             </div>
                             <!-- <img src="" alt="" class="preview_img" id="preview1" style="width:30%;margin:20px auto;"> -->
                             <div class="row mt-2">
@@ -336,6 +337,7 @@
         var extension3="";
         var extension4="";
         var extension5="";
+
         function getoutput(event) {
 
             if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
@@ -425,6 +427,7 @@
         };
 
         $("#next-pendukung").on("click", function(e){
+            e.preventDefault();
             localStorage.setItem('input_sumber', $('#pilih-sumber').val() );
             localStorage.setItem('input_img_ktp', outputfile +'.' + extension );
             localStorage.setItem('input_img_kk', outputfile2 +'.' + extension2 );
@@ -478,33 +481,33 @@
             success : function(data) {
                 if(data.auth_message == 'success'){
                     terimakasih();
-                    document.getElementById("input-nama").disabled = true;
-                    document.getElementById("input-gender").disabled = true;
-                    document.getElementById("input-tanggal").disabled = true;
-                    document.getElementById("input-tempat").disabled = true;
-                    document.getElementById("input-agama").disabled = true;
-                    document.getElementById("input-kota").disabled = true;
-                    document.getElementById("input-kecamatan").disabled = true;
-                    document.getElementById("input-desa").disabled = true;
-                    document.getElementById("input-alamat").disabled = true;
-                    document.getElementById("input-nik").disabled = true;
-                    document.getElementById("input-nisn").disabled = true;
+                    // document.getElementById("input-nama").disabled = true;
+                    // document.getElementById("input-gender").disabled = true;
+                    // document.getElementById("input-tanggal").disabled = true;
+                    // document.getElementById("input-tempat").disabled = true;
+                    // document.getElementById("input-agama").disabled = true;
+                    // document.getElementById("input-kota").disabled = true;
+                    // document.getElementById("input-kecamatan").disabled = true;
+                    // document.getElementById("input-desa").disabled = true;
+                    // document.getElementById("input-alamat").disabled = true;
+                    // document.getElementById("input-nik").disabled = true;
+                    // document.getElementById("input-nisn").disabled = true;
 
-                    document.getElementById("asal-sma").disabled = true;
-                    document.getElementById("alamat-sma").disabled = true;
-                    document.getElementById("nama-kantor").disabled = true;
-                    document.getElementById("alamat-kantor").disabled = true;
+                    // document.getElementById("asal-sma").disabled = true;
+                    // document.getElementById("alamat-sma").disabled = true;
+                    // document.getElementById("nama-kantor").disabled = true;
+                    // document.getElementById("alamat-kantor").disabled = true;
 
-                    document.getElementById("pilih-prodi").disabled = true;
-                    document.getElementById("pilih-waktu").disabled = true;
-                    document.getElementById("pilih-gelombang").disabled = true;
+                    // document.getElementById("pilih-prodi").disabled = true;
+                    // document.getElementById("pilih-waktu").disabled = true;
+                    // document.getElementById("pilih-gelombang").disabled = true;
 
-                    document.getElementById("pilih-sumber").disabled = true;
-                    document.getElementById("unggah-ktp").disabled = true;
-                    document.getElementById("unggah-kk").disabled = true;
-                    document.getElementById("unggah-nisn").disabled = true;
-                    document.getElementById("unggah-ijazah").disabled = true;
-                    document.getElementById("unggah-foto").disabled = true;
+                    // document.getElementById("pilih-sumber").disabled = true;
+                    // document.getElementById("unggah-ktp").disabled = true;
+                    // document.getElementById("unggah-kk").disabled = true;
+                    // document.getElementById("unggah-nisn").disabled = true;
+                    // document.getElementById("unggah-ijazah").disabled = true;
+                    // document.getElementById("unggah-foto").disabled = true;
                 } 
                 else{
                     $('#notification-fail').show();
