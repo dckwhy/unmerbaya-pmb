@@ -79,17 +79,11 @@
 
         <div class="row form-group mb-0">
           <div class="col-12">
-              <!-- <a href="welcome.html"> -->
-                <button type="submit" class="btn btn-warning btn-login" width="100%">
-                  <label class="font-weight-bold text-16 mb-0 text-white">LOGIN</label>
-                </button>
-              <!-- </a> -->
+              <button type="submit" class="btn btn-warning btn-login font-weight-bold text-16 mb-0 text-white" width="100%">LOGIN
+              </button>
           </div>
           <div class="col-12 mt-3">
-              <a href="sign_up.html">
-                <button type="submit" class="btn btn-outline-warning btn-login" width="100%">
-                  <label class="font-weight-bold text-16 mb-0 text-white">SIGN UP</label>
-                </button>
+              <a href="sign_up.html" class="btn btn-outline-warning btn-login font-weight-bold text-16 mb-0 text-white" width="100%">SIGN UP
               </a>
           </div>
         </div>
@@ -120,7 +114,7 @@
     e.preventDefault();
 			$.ajax( {
 				type :"post",
-				url : "http://localhost/unmer-pmb/unmer/request/login",
+				url : "http://localhost/unmerbaya-pmb-backend/unmer/request/login",
 				cache :false,
 				data: $(this).serialize(),
 				dataType: 'json',
@@ -128,6 +122,7 @@
 					if(data.auth_message == 'success'){
 						localStorage.setItem('id',data.login_data.id);
 						localStorage.setItem('name',data.login_data.name);
+						localStorage.setItem('name',data.login_data.username);
 						localStorage.setItem('phone',data.login_data.phone);
 						localStorage.setItem('email',data.login_data.email);
 						localStorage.setItem('pass',data.login_data.pass);

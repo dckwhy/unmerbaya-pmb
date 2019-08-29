@@ -126,11 +126,8 @@ body{
         </div>
         <div class="row form-group mb-0">
           <div class="col-12">
-            <!-- <a href="#"> -->
-            <button type="submit" class="btn btn-warning btn-login" width="100%">
-              <label class="font-weight-bold text-16 mb-0 text-white">SIGN UP</label>
+            <button type="submit" class="btn btn-warning btn-login font-weight-bold text-16 mb-0 text-white" width="100%">SIGN UP
             </button>
-            <!-- </a> -->
           </div>
         </div>
 
@@ -194,7 +191,7 @@ $('#register-form').on('submit', function(e){
   e.preventDefault();
   $.ajax( {
     type :"post",
-    url : "http://localhost/unmer-pmb/unmer/request/register",
+    url : "http://localhost/unmerbaya-pmb-backend/unmer/request/register",
     cache :false,
     data: $(this).serialize(),
     dataType: 'json',
@@ -202,6 +199,12 @@ $('#register-form').on('submit', function(e){
       if(data.auth_message == 'success'){
         // $('#notification-fail').hide();
         $("#modal-konfirmasi-daftar").modal('show');
+        localStorage.setItem('id', data.data_user.id);
+        localStorage.setItem('name', data.data_user.name);
+        localStorage.setItem('username', data.data_user.username);
+        localStorage.setItem('phone', data.data_user.phone);
+        localStorage.setItem('email', data.data_user.email);
+        localStorage.setItem('image', data.data_user.img);
       } else{
         // $('.tunggu').hide();
         $('#notification-fail').show();
