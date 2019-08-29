@@ -18,6 +18,9 @@
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/bootstrap.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/aos.js"></script>
 </head>
 <style>
   body{
@@ -119,7 +122,7 @@
 					if(data.auth_message == 'success'){
 						localStorage.setItem('id',data.login_data.id);
 						localStorage.setItem('name',data.login_data.name);
-						localStorage.setItem('username',data.login_data.username);
+						localStorage.setItem('name',data.login_data.usernamew);
 						localStorage.setItem('phone',data.login_data.phone);
 						localStorage.setItem('email',data.login_data.email);
 						localStorage.setItem('pass',data.login_data.pass);
