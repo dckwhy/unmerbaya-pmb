@@ -50,7 +50,7 @@ body{
               <div class="row">
                 <div class="col-2 text-center">
                   <div class="bulat-orange ml-2">
-                    <img src="images/curriculum_putih.png" class="login-icon">
+                    <img src="images/identification.png" class="login-icon">
                   </div>
                 </div>
                 <div class="col-10">
@@ -66,7 +66,7 @@ body{
               <div class="row">
                 <div class="col-2 text-center">
                   <div class="bulat-orange ml-2">
-                    <img src="images/curriculum_putih.png" class="login-icon">
+                    <img src="images/smartphone.png" class="login-icon">
                   </div>
                 </div>
                 <div class="col-10">
@@ -82,7 +82,7 @@ body{
               <div class="row">
                 <div class="col-2 text-center">
                   <div class="bulat-orange ml-2">
-                    <img src="images/curriculum_putih.png" class="login-icon">
+                    <img src="images/email_putih.png" class="login-icon">
                   </div>
                 </div>
                 <div class="col-10">
@@ -98,7 +98,7 @@ body{
               <div class="row">
                 <div class="col-2 text-center">
                   <div class="bulat-orange ml-2">
-                    <img src="images/curriculum_putih.png" class="login-icon">
+                    <img src="images/user_login.png" class="login-icon">
                   </div>
                 </div>
                 <div class="col-10">
@@ -114,7 +114,7 @@ body{
               <div class="row">
                 <div class="col-2 text-center">
                   <div class="bulat-orange ml-2">
-                    <img src="images/curriculum_putih.png" class="login-icon">
+                    <img src="images/password.png" class="login-icon">
                   </div>
                 </div>
                 <div class="col-10">
@@ -137,6 +137,20 @@ body{
 
       <div class="version-bottom-register">
         <p class="font-weight-light text-14 text-center text-white">Teras Kampus © 2019<br> V.1.0</p>
+      </div>
+    </div>
+
+    <!-- popup username exist -->
+    <div class="modal fade modal-notif" id="modal-username-exist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog px-3">
+          <div class="modal-red px-2 py-2 text-center">
+              <p class="text-18 text-white font-weight-bold">Sorry..</p>
+              <p class="text-16 text-white">Username already exist!</p>
+              <button class="btn btn-light text-12 font-weight-bold welcome-next">
+                OK
+              </button>
+          </div>
+          </div>
       </div>
     </div>
 
@@ -170,7 +184,8 @@ $('#register-form').on('submit', function(e){
         localStorage.setItem('img',data.data_user.img);
         window.location = "dashboard.html";
       }else if(data.auth_message == 'username exist'){
-        alert('Username already exist');
+        // alert('Username already exist');
+        $('#modal-username-exist').modal('show');
       } 
       else{
         // $('.tunggu').hide();
