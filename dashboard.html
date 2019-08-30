@@ -120,7 +120,7 @@
                             </a>
                         </div>
                         <div class="col-6 text-center pl-1">
-                            <a class="btn btn-warning popup-yesno font-weight-bold text-16 mb-0 text-white" href="pendaftaran_online.html">YA
+                            <a class="btn btn-warning popup-yesno font-weight-bold text-16 mb-0 text-white" href="personal_data.html">YA
                             </a>
                         </div>
                         </div>
@@ -212,6 +212,7 @@
         $(document).ready(function(){
             get_data_user();
             get_data_informasi();
+            //badge msg
             $('.msg-badge').hide();
             setInterval(function(){
                 get_data_message();
@@ -273,7 +274,7 @@
             });
             return false;
         }
-
+        //chat
         function get_data_message(){
             id = localStorage.getItem('id');
         
@@ -297,7 +298,7 @@
             });
             return false;
           }
-
+          //chat
         function update_message_admin(){
             id = localStorage.getItem('id');
         

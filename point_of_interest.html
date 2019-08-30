@@ -21,9 +21,6 @@
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/bootstrap.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/aos.js"></script>
   <style>
   body{
     font-family: "Century Gothic";
@@ -86,7 +83,7 @@
                 <p class="font-weight-bold text-center mb-0 ml-2 text-11">Pendaftaran Online Mahasiswa Baru </p>
                 <p class="font-weight-bold text-center mb-0 ml-2 text-11">UNIVERSITAS MERDEKA SURABAYA</p>
                 <p class="font-weight-bold text-center mb-0 ml-2 text-11">Tahun Akademik 2019/2020</p>
-                <div class="row"x;">
+                <div class="row">
                         <div class="col-12">
                             <div class="wrapper-progressBar">
                                 <ul class="progressBar">
@@ -114,7 +111,7 @@
                     </div>
                     <div class="row mt-2">
                             <div class="col-4" style="padding-right: 0;">
-                                <label class="text-10">Program waktu Studi</label>
+                                <label class="text-10">Program Waktu Studi</label>
                             </div>
                             <div class="col-8" style="padding-left: 20px;">
                                 <select class="form-control text-10 mb-0" onchange="value = this.value" name="waktu" id="pilih-waktu" required>
@@ -305,6 +302,12 @@
     </div>
 
   <script>
+
+        $(document).ready(function(){
+            $('#pilih-prodi').val(localStorage.getItem('input_prodi'));
+            $('#pilih-waktu').val(localStorage.getItem('input_waktu'));
+            $('#pilih-gelombang').val(localStorage.getItem('input_gelombang'));
+        });
         function cancel(){
             $("#modal-konfirmasi-daftar").modal('hide');
             $("#modal-konfirmasi-cancel").modal('show');
@@ -322,7 +325,7 @@
         $("#next-point").on("click",function(){
             window.location="data_pendukung.html";
             localStorage.setItem('input_prodi', $('#pilih-prodi').val() );
-            localStorage.setItem('input_wakxtu', $('#pilih-waktu').val() );
+            localStorage.setItem('input_waktu', $('#pilih-waktu').val() );
             localStorage.setItem('input_gelombang', $('#pilih-gelombang').val() );
         });
   </script>

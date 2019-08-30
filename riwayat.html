@@ -21,9 +21,6 @@
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/bootstrap.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/aos.js"></script>
   <style>
   body{
     font-family: "Century Gothic";
@@ -308,6 +305,13 @@
     </div>
 
   <script>
+
+        $(document).ready(function(){
+            $('#asal-sma').val(localStorage.getItem('input_asal_sma'));
+            $('#alamat-sma').val(localStorage.getItem('input_alamat_sma'));
+            $('#nama-kantor').val(localStorage.getItem('input_nama_kantor'));
+            $('#alamat-kantor').val(localStorage.getItem('input_alamat_kantor'));
+        });
         function cancel(){
             $("#modal-konfirmasi-daftar").modal('hide');
             $("#modal-konfirmasi-cancel").modal('show');

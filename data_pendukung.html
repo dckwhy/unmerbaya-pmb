@@ -21,9 +21,6 @@
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/bootstrap.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/aos.js"></script>
   <style>
   body{
     font-family: "Century Gothic";
@@ -80,7 +77,6 @@
     
     
     <div class="container pendaftaran-online">         
-        <form id="detail-personal-data">
         <!-- Data Pendukung -->
             <div id="data-pendukung">
                 <p class="font-weight-bold text-center mb-0 ml-2 text-11">Pendaftaran Online Mahasiswa Baru </p>
@@ -98,8 +94,7 @@
                         </div>
                     </div>
                 </div>
-                <label class="text-14 font-weight-bold mb-0 mt-1">Data Pendukung</label>     
-
+                <label class="text-14 font-weight-bold mb-0 mt-1">Data Pendukung</label>    
                     <div class="row mt-2">
                         <div class="col-4" style="padding-right: 0;">
                             <label class="text-10">Anda mengetahui UNMERBAYA dari </label>
@@ -113,6 +108,8 @@
                             </select>
                         </div>
                     </div>
+                    <form id="detail-personal-data"></form>
+                    <input type="hidden" name="user_id" value="">
                     <div class="row mt-2">
                         <div class="col-4" style="padding-right: 10;">
                             <label class="text-10">File Terlampir</label>
@@ -202,7 +199,7 @@
                             </div>
                             <div class="col-6 pl-1">
                                 <!-- <a href="#"> -->
-                                    <button class="btn btn-warning popup-yesno" id="ya-daftar" onclick="terimakasih()">
+                                    <button class="btn btn-warning popup-yesno" id="ya-daftar">
                                         <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
                                     </button>
                                 <!-- </a> -->
@@ -269,7 +266,7 @@
                         <div class="row">
                             <div class="col-12 text-center">
                                 <!-- <a href="dashboard.html"> -->
-                                    <a class="btn btn-warning welcome-next font-weight-bold text-16 mb-0 text-white" id="ok-daftar">
+                                    <a data-dismiss="modal" class="btn btn-warning welcome-next font-weight-bold text-16 mb-0 text-white">
                                         OK
                                     </a>
                                 <!-- </a> -->
@@ -441,13 +438,18 @@
         });
 
         // konfirmasi ya
-        $("#ok-daftar").on("click",function(){            
+
+        $('input[name="foto_file"]').on('change', function(e){
+            file1 = e.target.files[0].name;
+        });
+        $("#ya-daftar").on("click",function(){
             $.ajax({
             type :"post",
             url : "http://localhost/unmerbaya-pmb-backend/unmer/Request/input_data_pendaftaran",
             cache :false,
             data: {
                 //personal
+                user_id : localStorage.getItem('id'),
                 name : localStorage.getItem('input_nama'),
                 gender : localStorage.getItem('input_gender'),
                 tgl_lahir : localStorage.getItem('input_tanggal'),
@@ -471,11 +473,11 @@
                 gelombang : localStorage.getItem('input_gelombang'),
                 //pendukung
                 sumber_informasi : localStorage.getItem('input_sumber'),
-                foto_file : localStorage.getItem('input_img_ktp'),
-                foto_file2 : localStorage.getItem('input_img_kk'),
-                foto_file3 : localStorage.getItem('input_img_nisn'),
-                foto_file4 : localStorage.getItem('input_img_ijazah'),
-                foto_file5 : localStorage.getItem('input_img_foto'),
+                foto_file : file1,
+                //foto_file2 : localStorage.getItem('input_img_kk'),
+                //foto_file3 : localStorage.getItem('input_img_nisn'),
+                //foto_file4 : localStorage.getItem('input_img_ijazah'),
+                //foto_file5 : localStorage.getItem('input_img_foto'),
             },
             dataType: 'json',
             success : function(data) {

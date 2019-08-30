@@ -21,9 +21,6 @@
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/bootstrap.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/aos.js"></script>
   <style>
   body{
     font-family: "Century Gothic";
@@ -365,6 +362,20 @@
     </div>
 
   <script>
+        $(document).ready(function(){
+            $('#input-nama').val(localStorage.getItem('input_nama'));
+            $('#input-gender').val(localStorage.getItem('input_gender'));
+            $('#input-tanggal').val(localStorage.getItem('input_tanggal'));
+            $('#input-tempat').val(localStorage.getItem('input_tempat'));
+            $('#input-agama').val(localStorage.getItem('input_agama'));
+            $('#input-kota').val(localStorage.getItem('input_kota'));
+            $('#input-kecamatan').val(localStorage.getItem('input_kecamatan'));
+            $('#input-desa').val(localStorage.getItem('input_desa'));
+            $('#input-alamat').val(localStorage.getItem('input_alamat'));
+            $('#input-phone').val(localStorage.getItem('input_phone'));
+            $('#input-nik').val(localStorage.getItem('input_nik'));
+            $('#input-nisn').val(localStorage.getItem('input_nisn'));
+        });
         function cancel(){
             $("#modal-konfirmasi-daftar").modal('hide');
             $("#modal-konfirmasi-cancel").modal('show');
@@ -392,6 +403,5 @@
             localStorage.setItem('input_nisn', $('#input-nisn').val() );
         };
     </script>
-
 </body>
 </html>
