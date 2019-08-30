@@ -40,7 +40,7 @@
                 </a>
             </div>
             <div class="col-1 pl-0">
-                <span class="badge badge-danger badge-notif">4</span>
+                <span class="badge badge-danger badge-notif msg-badge"></span>
             </div>
         </div>
     </nav>
@@ -219,6 +219,60 @@
     </div>
 
     <script>
+        $(document).ready(function(){
+            //badge msg
+            $('.msg-badge').hide();
+            setInterval(function(){
+                get_data_message();
+            }, 1000);
+        });
+        //chat
+        function get_data_message(){
+            id = localStorage.getItem('id');
+        
+            $.ajax({
+              type: "post",
+              url: "http://localhost/unmerbaya/unmer/get_data_message",
+              cache: false,
+              data: {
+                id: id
+              },
+              dataType: "json",
+              success: function (data) {
+                if(data > 0 ){
+                  $('.msg-badge').show();
+                  $('.msg-badge').text(data);
+                }
+              },
+              error: function (){
+                alert('Network Error');
+              }
+            });
+            return false;
+          }
+          //chat
+        function update_message_admin(){
+            id = localStorage.getItem('id');
+        
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb/unmer/request_get_message/update_message_admin",
+                cache: false,
+                data: {
+                id: id
+                },
+                dataType: "json",
+                success: function (data) {
+                if(data.msg == 'success' ){
+                    window.location = 'chat.html';
+                }
+                },
+                error: function (){
+                alert('Network Error');
+                }
+            });
+            return false;
+        };
         function maintenance(){
            $("#modal-maintenance").modal("show");
         };
