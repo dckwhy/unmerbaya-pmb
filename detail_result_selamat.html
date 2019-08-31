@@ -32,23 +32,67 @@
     
     <div class="detail">
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-12 text-center ml-auto mr-auto mt-4">
                 <img src="images/unmerbaya.png" class="logo">
-                <label class="font-weight-bold text-14 mt-2">
+            </div>
+            <div class="col-12 text-center">
+                <label class="font-weight-bold text-14 mt-3">
                     Pengumuman Hasil Seleksi Mahasiswa Baru<br>
                     UNIVERSITAS MERDEKA SURABAYA<br>
                     Tahun Akademik 2019/2020
                 </label>
-                <h5 class="font-weight-bold mt-4 mb-1">SELAMAT</h5>
-                <label class="text-14">
-                    Anda diterima sebagai mahasiswa baru<br>
-                    UNIVERSITAS MERDEKA SURABAYA<br>
-                    tahun akademik 2019/2020<br>
-                    Fakultas Ekonomi<br>
-                    Jurusan Manajemen.
-                </label>
+                <div id="congrats">
+                    <h5 class="font-weight-bold mt-4 mb-1">SELAMAT</h5>
+                    <label class="text-14">
+                        Anda diterima sebagai mahasiswa baru<br>
+                        UNIVERSITAS MERDEKA SURABAYA<br>
+                        Tahun Akademik 2019/2020<br>
+                        <!--Fakultas Ekonomi<br>
+                        Jurusan Manajemen.-->
+                    </label>
+                </div>
+                <div id="wait">
+                    <label class="text-14">
+                        Mohon ditunggu untuk hasil seleksi<br>
+                        UNIVERSITAS MERDEKA SURABAYA<br>
+                        Tahun Akademik 2019/2020<br>
+                        <!--Fakultas Ekonomi<br>
+                        Jurusan Manajemen.-->
+                    </label>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            get_status();
+        });
+        $('#congrats').hide();
+        $('#wait').hide();
+        function get_status(){
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/request_get_status/get_status",
+                cache: false,
+                data: {
+                    user_id: localStorage.getItem('id')
+                },
+                dataType: "json",
+                success: function (data){
+                    if(data.msg == 'Lulus'){
+                        $('#congrats').show();
+                    }
+                    else{
+                        $('#wait').show();
+                    }
+                },
+                error: function(){
+                    alert('Network Error');
+                }
+            });
+            return false;
+        }
+    </script>
 </body>
 </html>

@@ -251,8 +251,8 @@
                         tag_table.find('#reader'+field.id).text(field.reader+' Read');
                         tag_table.find('#content').text(field.content);
                         tag_table.find('#content').append('<a id="read" class="text-orange">Read More</a>');
-                        tag_table.find('#read').attr('onclick', 'reader('+field.id+')')
-
+                        tag_table.find('#read').attr('onclick', 'reader('+field.id+')');
+                        tag_table.find('#image').attr('src', field.img);
                         if(field.msg == 'exist'){
                             tag_table.find('#like').prop('onclick', null);
                         }

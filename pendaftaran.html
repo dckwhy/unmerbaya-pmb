@@ -148,7 +148,7 @@
                     <p id="content" class="text-11 text-justify">
                     </p>
     
-                    <img id="image" src="images/prospek-kerja.jpg" class="foto-content">
+                    <img id="image" src="" class="foto-content">
                 </div>
                 <hr class="mb-2 mt-2">
                 <div class="action-foto">
@@ -251,8 +251,8 @@
                         tag_table.find('#reader'+field.id).text(field.reader+' Read');
                         tag_table.find('#content').text(field.content);
                         tag_table.find('#content').append('<a id="read" class="text-orange">Read More</a>');
-                        tag_table.find('#read').attr('onclick', 'reader('+field.id+')')
-
+                        tag_table.find('#read').attr('onclick', 'reader('+field.id+')');
+                        tag_table.find('#image').attr('src', field.img);
                         if(field.msg == 'exist'){
                             tag_table.find('#like').prop('onclick', null);
                         }

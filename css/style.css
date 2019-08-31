@@ -243,9 +243,6 @@
 	margin-top: -8px;
 	}
   
-	.progressBar {
-	}
-  
   .progressBar li {
 	list-style-type: none;
 	float: left;
@@ -416,11 +413,10 @@
 
 /* detail */
 .detail{
-	margin-top:85px;
+	margin-top:40px;
 }
 .detail .logo{
-	width: 70px;
-	height: 70px;
+	width: 50px;
 
 }
 
