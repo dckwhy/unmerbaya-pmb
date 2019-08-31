@@ -189,9 +189,9 @@
                 <div class="action-foto">
                     <div class="row">
                         <div class="col-6 text-left">
-                            <a href="#" onclick="maintenance()">
+                            <a id="like">
                                 <img src="images/handshake.png" class="icon-action">
-                                <label class="text-dark text-10">Appreciate</label>
+                                <label id="jumlah_like" class="text-dark text-10"></label>
                             </a>
                         </div>
                         <div class="col-6 text-right">
@@ -251,19 +251,48 @@
             return false;
         }
 
+        function like_post(id){
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/insert_like/insert_data",
+                cache: false,
+                data: {
+                    post_id: id, user_id: localStorage.getItem('id')
+                },
+                dataType: "json",
+                success: function(data){
+                    $('#jumlah_like'+id).text(data.jumlah+' Appreciate');
+                },
+                error: function(){
+                    alert('Network Error');
+                }
+            });
+            return false;
+        }
+
         function get_data_informasi(){
             $.ajax({
                 type: "post",
                 url: "http://localhost/unmerbaya-pmb-backend/unmer/request_data_informasi/data_informasi",
                 cache: false,
+                data:{
+                    user_id: localStorage.getItem('id')
+                },
                 dataType: "json",
                 success: function (data){
                     $.each(data, function(index, field){
                         tag_table = $('#master_tag').find('.box-news').clone();
                         tag_table.find('#judul').text(field.judul);
                         tag_table.find('#kategori').text('Kategori '+field.kategori+' / '+field.tgl);
+                        tag_table.find('#like').attr('onclick', 'like_post('+field.id+')');
+                        tag_table.find('#jumlah_like').attr('id', 'jumlah_like'+field.id);
+                        tag_table.find('#jumlah_like'+field.id).text(field.jumlah+' Appreciate');
                         tag_table.find('#content').text(field.content);
                         tag_table.find('#content').append('<a class="text-orange" href="detail_news.html?id='+field.id+'"'+'>Read More</a>');
+
+                        if(field.msg == 'exist'){
+                            tag_table.find('#like').prop('onclick', null);
+                        }
 
                         $('.list-news').append(tag_table);
                     });

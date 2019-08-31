@@ -40,7 +40,7 @@
                 </a>
             </div>
             <div class="col-1 pl-0">
-                <span class="badge badge-danger badge-notif">4</span>
+                <span class="badge badge-danger badge-notif msg-badge"></span>
             </div>
         </div>
     </nav>
@@ -154,9 +154,9 @@
                 <div class="action-foto">
                     <div class="row">
                         <div class="col-6 text-left">
-                            <a href="#" onclick="maintenance()">
+                            <a id="like">
                                 <img src="images/handshake.png" class="icon-action">
-                                <label class="text-dark text-10">Appreciate</label>
+                                <label id="jumlah_like" class="text-dark text-10"></label>
                             </a>
                         </div>
                         <div class="col-6 text-right">
@@ -175,6 +175,10 @@
     <script>
         $(document).ready(function(){
             get_data_informasi_jadwal();
+            $('.msg-badge').hide();
+            setInterval(function(){
+                get_data_message();
+            }, 1000);
         });
         function maintenance(){
            $("#modal-maintenance").modal("show");
@@ -188,6 +192,25 @@
             window.location = 'pendaftaran.html';
         });
 
+        function like_post(id){
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/insert_like/insert_data",
+                cache: false,
+                data: {
+                    post_id: id, user_id: localStorage.getItem('id')
+                },
+                dataType: "json",
+                success: function(data){
+                    $('#jumlah_like'+id).text(data.jumlah+' Appreciate');
+                },
+                error: function(){
+                    alert('Network Error');
+                }
+            });
+            return false;
+        }
+
         function get_data_informasi_jadwal(){
             $.ajax({
                 type: "post",
@@ -199,6 +222,9 @@
                         tag_table = $('#master_tag_jadwal').find('.box-news').clone();
                         tag_table.find('#judul').text(field.judul);
                         tag_table.find('#kategori').text('Kategori '+field.kategori+' / '+field.tgl);
+                        tag_table.find('#like').attr('onclick', 'like_post('+field.id+')');
+                        tag_table.find('#jumlah_like').attr('id', 'jumlah_like'+field.id);
+                        tag_table.find('#jumlah_like'+field.id).text(field.jumlah+' Appreciate');
                         tag_table.find('#content').text(field.content);
                         tag_table.find('#content').append('<a class="text-orange" href="detail_news.html?id='+field.id+'"'+'>Read More</a>');
 
@@ -211,6 +237,54 @@
             });
             return false;
         }
+         //chat
+         function get_data_message(){
+            id = localStorage.getItem('id');
+        
+            $.ajax({
+              type: "post",
+              url: "http://localhost/unmerbaya/unmer/get_data_message",
+              cache: false,
+              data: {
+                id: id
+              },
+              dataType: "json",
+              success: function (data) {
+                if(data > 0 ){
+                  $('.msg-badge').show();
+                  $('.msg-badge').text(data);
+                }
+              },
+              error: function (){
+                alert('Network Error');
+              }
+            });
+            return false;
+          }
+
+          //chat
+        function update_message_admin(){
+            id = localStorage.getItem('id');
+        
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb/unmer/request_get_message/update_message_admin",
+                cache: false,
+                data: {
+                id: id
+                },
+                dataType: "json",
+                success: function (data) {
+                if(data.msg == 'success' ){
+                    window.location = 'chat.html';
+                }
+                },
+                error: function (){
+                alert('Network Error');
+                }
+            });
+            return false;
+        };
     </script>
 
 </body>
