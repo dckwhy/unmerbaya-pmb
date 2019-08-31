@@ -101,7 +101,7 @@
                                 <label class="text-10 mb-0">Program studi yang dipilih</label>
                             </div>
                             <div class="col-8" style="padding-left: 20px;">
-                                <select class="form-control text-10" onchange="value = this.value" name="prodi" id="pilih-prodi" required>
+                                <select class="form-control text-10 personal_data" onchange="value = this.value" name="prodi" id="pilih-prodi" required>
                                     <option class="text-10">--Silahkan pilih--</option>
                                     <option value="Hukum">Hukum</option>
                                     <option value="Teknik">Teknik</option>
@@ -114,7 +114,7 @@
                                 <label class="text-10">Program Waktu Studi</label>
                             </div>
                             <div class="col-8" style="padding-left: 20px;">
-                                <select class="form-control text-10 mb-0" onchange="value = this.value" name="waktu" id="pilih-waktu" required>
+                                <select class="form-control text-10 mb-0 personal_data" onchange="value = this.value" name="waktu" id="pilih-waktu" required>
                                     <option class="text-10">--Silahkan pilih--</option>
                                     <option value="Pagi">Pagi</option>
                                     <option value="Siang">Siang</option>
@@ -127,7 +127,7 @@
                                 <label class="text-10">Gelombang ke</label>
                             </div>
                             <div class="col-8" style="padding-left: 20px;">
-                                <select class="form-control text-10" onchange="value = this.value" name="gelombang" id="pilih-gelombang" required >
+                                <select class="form-control text-10 personal_data" onchange="value = this.value" name="gelombang" id="pilih-gelombang" required >
                                     <option class="text-10">--Silahkan pilih--</option>
                                     <option value="1">Pertama</option>
                                     <option value="2">Kedua</option>
@@ -304,16 +304,44 @@
   <script>
 
         $(document).ready(function(){
+            get_data_user()
             //badge msg
             $('.msg-badge').hide();
             setInterval(function(){
                 get_data_message();
             }, 1000);
         
-            $('#pilih-prodi').val(localStorage.getItem('input_prodi'));
-            $('#pilih-waktu').val(localStorage.getItem('input_waktu'));
-            $('#pilih-gelombang').val(localStorage.getItem('input_gelombang'));
         });
+
+        function get_data_user(){
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/request_data_user/get_data_personal",
+                cache: false,
+                data: {
+                    id: localStorage.getItem('id')
+                },
+                dataType: "json",
+                success: function (data){
+                    if(data.msg == 'success'){
+                        $('#pilih-prodi').val(localStorage.getItem('input_prodi'));
+                        $('#pilih-waktu').val(localStorage.getItem('input_waktu'));
+                        $('#pilih-gelombang').val(localStorage.getItem('input_gelombang'));
+                    }else{
+                        $('#pilih-prodi').val(data.hasil.prodi);
+                        $('#pilih-waktu').val(data.hasil.waktu);
+                        $('#pilih-gelombang').val(data.hasil.gelombang);
+                        $('.personal_data').attr('disabled', true);
+                        $('.personal_data').removeAttr('required');
+                    }
+                },
+                error: function (){
+                    alert('Network Error');
+                }
+            });
+            return false;
+        }
+
         //chat
         function get_data_message(){
             id = localStorage.getItem('id');
@@ -338,6 +366,7 @@
             });
             return false;
           }
+
           //chat
         function update_message_admin(){
             id = localStorage.getItem('id');

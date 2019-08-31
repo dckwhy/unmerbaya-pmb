@@ -100,7 +100,7 @@
                     <label class="text-8 mb-0">Nama Calon Mahasiswa</label>
                 </div>
                 <div class="col-8" style="padding-left: 20px;">
-                    <input type="text" class="form-control text-10" placeholder="Jane Doe" name="name" id="input-nama" required>
+                    <input type="text" class="form-control text-10 personal_data" placeholder="Jane Doe" name="name" id="input-nama" required>
                 </div>
             </div>
             <div class="row">
@@ -108,10 +108,10 @@
                         <label class="text-8">Jenis Kelamin</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <select class="form-control 8 onchange="value = this.value" name="gender" id="input-gender" required>
-                            <option class="8>--Silahkan Pilih--</option>
-                            <option value="Male">Laki-Laki</option>
-                            <option value="Female">Perempuan</option>
+                        <select class="form-control text-8 personal_data" onchange="value = this.value" name="gender" id="input-gender" required>
+                            <option class="text-8">--Silahkan Pilih--</option>
+                            <option value="Laki-laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
                         </select>
                     </div>
             </div>
@@ -120,7 +120,7 @@
                         <label class="text-8">Tanggal Lahir</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="date" max="3000-12-31" min="1000-01-01" class="form-control teks3" id="input-tanggal" placeholder="Perempuan" name="tgl_lahir" required>
+                        <input type="date" max="3000-12-31" min="1000-01-01" class="form-control teks3 personal_data" id="input-tanggal" placeholder="Perempuan" name="tgl_lahir" required>
                     </div>
             </div>
             <div class="row">
@@ -128,7 +128,7 @@
                     <label class="text-8">Tempat Lahir</label>
                 </div>
                 <div class="col-8" style="padding-left: 20px;">
-                    <input type="text" class="form-control text-10" placeholder="Tempat Lahir" name="tempat_lahir" id="input-tempat" required>
+                    <input type="text" class="form-control text-10 personal_data" placeholder="Tempat Lahir" name="tempat_lahir" id="input-tempat" required>
                 </div>
             </div>
             <div class="row">
@@ -136,7 +136,7 @@
                         <label class="text-8">Agama</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <select class="form-control text-10" onchange="value = this.value" required name="agama" id="input-agama" required>
+                        <select class="form-control text-10 personal_data" onchange="value = this.value" required name="agama" id="input-agama" required>
                             <option class="text-10" value="">--Silahkan Pilih--</option>
                             <option value="Islam">Islam</option>
                             <option value="Kristen">Kristen</option>
@@ -152,7 +152,7 @@
                         <label class="text-8">Alamat Tinggal</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class="form-control text-10" placeholder="Kota" name="kota" id="input-kota" required>
+                        <input type="text" class="form-control text-10 personal_data" placeholder="Kota" name="kota" id="input-kota" required>
                     </div>
             </div>
             <div class="row">
@@ -160,7 +160,7 @@
                         <label class="text-8"></label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class="form-control text-10" placeholder="Kecamatan" name="kecamatan" id="input-kecamatan" required>
+                        <input type="text" class="form-control text-10 personal_data" placeholder="Kecamatan" name="kecamatan" id="input-kecamatan" required>
                     </div>
             </div>
             <div class="row">
@@ -168,7 +168,7 @@
                         <label class="text-8"></label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class="form-control text-10" placeholder="Desa" name="desa" id="input-desa" required>
+                        <input type="text" class="form-control text-10 personal_data" placeholder="Desa" name="desa" id="input-desa" required>
                     </div>
             </div>
             <div class="row">
@@ -176,7 +176,7 @@
                         <label class="text-8"></label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class="form-control text-10" placeholder="Alamat" name="alamat" id="input-alamat" required>
+                        <input type="text" class="form-control text-10 personal_data" placeholder="Alamat" name="alamat" id="input-alamat" required>
                     </div>
             </div>
             <div class="row">
@@ -184,7 +184,7 @@
                         <label class="text-8">Handphone</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class="teks3 form-control" placeholder="081555300999" name="phone" id="input-phone" required>
+                        <input type="text" class="teks3 form-control personal_data" placeholder="081555300999" name="phone" id="input-phone" required>
                         </select>
                     </div>
             </div>
@@ -193,7 +193,7 @@
                         <label class="text-8 mb-0">Nomor Induk Kependudukan / NIK</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class="teks3 form-control" placeholder="32576258963253256" name="nik" id="input-nik" required>
+                        <input type="text" class="teks3 form-control personal_data" placeholder="32576258963253256" name="nik" id="input-nik" required>
                         </select>
                     </div>
             </div>
@@ -202,7 +202,7 @@
                         <label class="text-8 mb-0">Nomor Induk Siswa Nasional / NISN</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class="teks3 form-control" placeholder="2356556565653593" name="nisn" id="input-nisn" required>
+                        <input type="text" class="teks3 form-control personal_data" placeholder="2356556565653593" name="nisn" id="input-nisn" required>
                         </select>
                     </div>
             </div>
@@ -363,25 +363,60 @@
 
   <script>
         $(document).ready(function(){
+            get_data_user();
             //badge msg
             $('.msg-badge').hide();
             setInterval(function(){
                 get_data_message();
             }, 1000);
-
-            $('#input-nama').val(localStorage.getItem('input_nama'));
-            $('#input-gender').val(localStorage.getItem('input_gender'));
-            $('#input-tanggal').val(localStorage.getItem('input_tanggal'));
-            $('#input-tempat').val(localStorage.getItem('input_tempat'));
-            $('#input-agama').val(localStorage.getItem('input_agama'));
-            $('#input-kota').val(localStorage.getItem('input_kota'));
-            $('#input-kecamatan').val(localStorage.getItem('input_kecamatan'));
-            $('#input-desa').val(localStorage.getItem('input_desa'));
-            $('#input-alamat').val(localStorage.getItem('input_alamat'));
-            $('#input-phone').val(localStorage.getItem('input_phone'));
-            $('#input-nik').val(localStorage.getItem('input_nik'));
-            $('#input-nisn').val(localStorage.getItem('input_nisn'));
         });
+
+        function get_data_user(){
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/request_data_user/get_data_personal",
+                cache: false,
+                data: {
+                    id: localStorage.getItem('id')
+                },
+                dataType: "json",
+                success: function (data){
+                    if(data.msg == 'success'){
+                        $('#input-nama').val(localStorage.getItem('input_nama'));
+                        $('#input-gender').val(localStorage.getItem('input_gender'));
+                        $('#input-tanggal').val(localStorage.getItem('input_tanggal'));
+                        $('#input-tempat').val(localStorage.getItem('input_tempat'));
+                        $('#input-agama').val(localStorage.getItem('input_agama'));
+                        $('#input-kota').val(localStorage.getItem('input_kota'));
+                        $('#input-kecamatan').val(localStorage.getItem('input_kecamatan'));
+                        $('#input-desa').val(localStorage.getItem('input_desa'));
+                        $('#input-alamat').val(localStorage.getItem('input_alamat'));
+                        $('#input-phone').val(localStorage.getItem('input_phone'));
+                        $('#input-nik').val(localStorage.getItem('input_nik'));
+                        $('#input-nisn').val(localStorage.getItem('input_nisn'));        
+                    }else{
+                        $('#input-nama').val(data.hasil.name);
+                        $('#input-gender').val(data.hasil.gender);
+                        $('#input-tanggal').val(data.hasil.tgl_lahir);
+                        $('#input-tempat').val(data.hasil.tempat_lahir);
+                        $('#input-agama').val(data.hasil.agama);
+                        //$('#input-kota').val(data.hasil.name);
+                        //$('#input-kecamatan').val(data.hasil.name);
+                        //$('#input-desa').val(data.hasil.name);
+                        //$('#input-alamat').val(data.hasil.name);
+                        $('#input-phone').val(data.hasil.phone);
+                        $('#input-nik').val(data.hasil.nik);
+                        $('#input-nisn').val(data.hasil.nisn);
+                        $('.personal_data').attr('disabled', true);
+                        $('.personal_data').removeAttr('required');
+                    }
+                },
+                error: function (){
+                    alert('Network Error');
+                }
+            });
+            return false;
+        }
         //chat
         function get_data_message(){
             id = localStorage.getItem('id');

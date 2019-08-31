@@ -105,7 +105,7 @@
                         <label class="text-10">Asal SMU/SMK/Sederajat</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <input type="text" class=" teks3 form-control" placeholder="SMUK Frateran Surabaya" id="asal-sma" name="sekolah_asal" required>
+                        <input type="text" class=" teks3 form-control personal_data" placeholder="SMUK Frateran Surabaya" id="asal-sma" name="sekolah_asal" required>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -113,7 +113,7 @@
                         <label class="text-10">Alamat SMU/SMK/Sederajat</label>
                     </div>
                     <div class="col-8" style="padding-left: 20px;">
-                        <textarea type="text" class="teks3 form-control" id="alamat-sma" placeholder="Jl.Kepanjen No.8 Krembangan Selatan, Kota Surabaya, Jawa Timur" name="alamat_sekolah_asal"></textarea>
+                        <textarea cols="5" style="resize: none" type="text" class="teks3 form-control personal_data" id="alamat-sma" placeholder="Jl.Kepanjen No.8 Krembangan Selatan, Kota Surabaya, Jawa Timur" name="alamat_sekolah_asal"></textarea>
                     </div>
                 </div>
                 <hr>
@@ -127,7 +127,7 @@
                         <label class="text-10 text-left">Nama Kantor</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" class="teks3 form-control" placeholder="Nama Kantor" id="nama-kantor" name="nama_kantor">
+                        <input type="text" class="teks3 form-control personal_data" placeholder="Nama Kantor" id="nama-kantor" name="nama_kantor">
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -135,10 +135,10 @@
                         <label class="text-10">Alamat Kantor</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" class="teks3 form-control" placeholder="Alamat Kantor" id="alamat-kantor" name="alamat_kantor">
+                        <input type="text" class="teks3 form-control personal_data" placeholder="Alamat Kantor" id="alamat-kantor" name="alamat_kantor">
                     </div>
                 </div>
-                <br><br><br><br><br>
+                <br><br><br><br>
             </div>
         </form>
         <div class="row mt-2"> 
@@ -307,6 +307,7 @@
   <script>
 
         $(document).ready(function(){
+            get_data_user()
             //badge msg
             $('.msg-badge').hide();
             setInterval(function(){
@@ -318,6 +319,37 @@
             $('#nama-kantor').val(localStorage.getItem('input_nama_kantor'));
             $('#alamat-kantor').val(localStorage.getItem('input_alamat_kantor'));
         });
+
+        function get_data_user(){
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/request_data_user/get_data_personal",
+                cache: false,
+                data: {
+                    id: localStorage.getItem('id')
+                },
+                dataType: "json",
+                success: function (data){
+                    if(data.msg == 'success'){
+                        $('#asal-sma').val(localStorage.getItem('input_asal_sma'));
+                        $('#alamat-sma').val(localStorage.getItem('input_alamat_sma'));
+                        $('#nama-kantor').val(localStorage.getItem('input_nama_kantor'));
+                        $('#alamat-kantor').val(localStorage.getItem('input_alamat_kantor'));
+                    }else{
+                        $('#asal-sma').val(data.hasil.sekolah_asal);
+                        $('#alamat-sma').val(data.hasil.alamat_sekolah_asal);
+                        $('#nama-kantor').val(data.hasil.nama_kantor);
+                        $('#alamat-kantor').val(data.hasil.alamat_kantor);
+                        $('.personal_data').attr('disabled', true);
+                        $('.personal_data').removeAttr('required');
+                    }
+                },
+                error: function (){
+                    alert('Network Error');
+                }
+            });
+            return false;
+        }
         //chat
         function get_data_message(){
             id = localStorage.getItem('id');

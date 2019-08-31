@@ -99,8 +99,10 @@
                         <div class="col-4" style="padding-right: 0;">
                             <label class="text-10">Anda mengetahui UNMERBAYA dari </label>
                         </div>
-                        <div class="col-8" style="padding-left: 20px;">
-                            <select class="form-control text-10" onchange="value = this.value" id="pilih-sumber" required name="sumber_informasi">
+
+                    <form id="detail-personal-data">
+                        <div class="form-group pilih-sumber personal_data" style="padding-left: 20px;">
+                            <select name="sumber_informasi" class="form-control text-10" onchange="value = this.value" id="pilih-sumber" required name="sumber_informasi">
                                 <option class="text-10">--Silahkan pilih--</option>
                                 <option value="Teman">Teman</option>
                                 <option value="Brosur">Brosur</option>
@@ -108,35 +110,29 @@
                             </select>
                         </div>
                     </div>
-                    <form id="detail-personal-data"></form>
                     <!-- personal data -->
-                    <input type="hidden" name="user_id" value="">
-                    <input type="hidden" name="name" value="">
-                    <input type="hidden" name="tgl_lahir" value="">
-                    <input type="hidden" name="tempat_lahir" value="">
-                    <input type="hidden" name="gender" value="">
-                    <input type="hidden" name="agama" value="">
-                    <input type="hidden" name="address" value="">
-                    <input type="hidden" name="phone" value="">
-                    <input type="hidden" name="nik" value="">
-                    <input type="hidden" name="nisn" value="">
+                    <input type="hidden" id="user_id" name="user_id" value="">
+                    <input type="hidden" id="name" name="name" value="">
+                    <input type="hidden" id="tgl_lahir" name="tgl_lahir" value="">
+                    <input type="hidden" id="tempat_lahir" name="tempat_lahir" value="">
+                    <input type="hidden" id="gender" name="gender" value="">
+                    <input type="hidden" id="agama" name="agama" value="">
+                    <input type="hidden" id="kota" name="kota" value="">
+                    <input type="hidden" id="kecamatan" name="kecamatan" value="">
+                    <input type="hidden" id="desa" name="desa" value="">
+                    <input type="hidden" id="address" name="alamat" value="">
+                    <input type="hidden" id="phone" name="phone" value="">
+                    <input type="hidden" id="nik" name="nik" value="">
+                    <input type="hidden" id="nisn" name="nisn" value="">
                     <!-- riwayat -->
-                    <input type="hidden" name="camaba_id" value="">
-                    <input type="hidden" name="sekolah_asal" value="">
-                    <input type="hidden" name="alamat_sekolah_asal" value="">
-                    <input type="hidden" name="nama_kantor" value="">
-                    <input type="hidden" name="alamat_kantor" value="">
+                    <input type="hidden" id="sekolah_asal" name="sekolah_asal" value="">
+                    <input type="hidden" id="alamat_sekolah_asal" name="alamat_sekolah_asal" value="">
+                    <input type="hidden" id="nama_kantor" name="nama_kantor" value="">
+                    <input type="hidden" id="alamat_kantor" name="alamat_kantor" value="">
                     <!-- poi -->
-                    <input type="hidden" name="prodi" value="">
-                    <input type="hidden" name="waktu" value="">
-                    <input type="hidden" name="gelombang" value="">
-                    <!-- data pendukung -->
-                    <input type="hidden" name="sumber_informasi" value="">
-                    <input type="hidden" name="img_ktp" value="">
-                    <input type="hidden" name="img_kk" value="">
-                    <input type="hidden" name="img_nisn" value="">
-                    <input type="hidden" name="img_ijazah" value="">
-                    <input type="hidden" name="photo" value="">
+                    <input type="hidden" id="prodi" name="prodi" value="">
+                    <input type="hidden" id="waktu" name="waktu" value="">
+                    <input type="hidden" id="gelombang" name="gelombang" value="">
 
                     <div class="row mt-2">
                         <div class="col-4" style="padding-right: 10;">
@@ -147,41 +143,78 @@
                                 <label class="text-10 ml-4 mb-1">Kartu Tanda Penduduk</label>
                             </div>
                             <div class="row pl-4">
-                                <!-- <input type="file" onChange='getoutput(event)' id="unggah-ktp" name="img_ktp" class="text-center text-12" style="height:25px; width:90%;"> -->
-                                <input type="file" onChange='getoutput(event)' id="unggah-ktp" name="foto_file" class="text-center text-12" style="height:25px; width:90%;">
+                                <input type="file" id="unggah-ktp" name="foto_file" class="text-center text-12 upload_image" width:"90%;">
                             </div>
-                            <!-- <img src="" alt="" class="preview_img" id="preview1" style="width:30%;margin:20px auto;"> -->
+                            <img alt="" class="preview_img ml-2" id="preview1" style="width:100%">
                             <div class="row mt-2">
                                 <label class="text-10 ml-4 mb-1">Kartu Keluarga</label>
                             </div>
                             <div class="row pl-4">
-                                <input type="file" onChange='getoutput2(event)' id="unggah-kk" name="foto_file2" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                                <input type="file" id="unggah-kk" name="foto_file2" class="text-center py-0 upload_image" style="width:90%; font-size:12px;">
                             </div>  
-                            <!-- <img src="" alt="" class="preview_img" id="preview2" style="width:30%;margin:20px auto;"> -->
+                            <img alt="" class="preview_img ml-2" id="preview2" style="width:100%">
                             <div class="row mt-2">
                                 <label class="text-10 ml-4 mb-1">No Induk Siswa Nasional</label>
                             </div>
                             <div class="row pl-4">
-                                <input type="file" onChange='getoutput3(event)' id="unggah-nisn" name="foto_file3" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                                <input type="file" id="unggah-nisn" name="foto_file3" class="text-center py-0 upload_image" style="width:90%; font-size:12px;">
                             </div>
-                            <!-- <img src="" alt="" class="preview_img" id="preview3" style="width:30%;margin:20px auto;"> -->
+                            <img alt="" class="preview_img ml-2" id="preview3" style="width:100%">
                             <div class="row mt-2">
                                 <label class="text-10 ml-4 mb-1">Ijazah SMA/Sederajat</label>
                             </div>
                             <div class="row pl-4">
-                                <input type="file" onChange='getoutput4(event)' id="unggah-ijazah" name="foto_file4" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                                <input type="file" id="unggah-ijazah" name="foto_file4" class="text-center py-0 upload_image" style="width:90%; font-size:12px;">
                             </div>
-                            <!-- <img src="" alt="" class="preview_img" id="preview4" style="width:30%;margin:20px auto;"> -->
+                            <img alt="" class="preview_img ml-2" id="preview4" style="width:100%">
                             <div class="row mt-2">
                                 <label class="text-10 ml-4 mb-1">Foto</label>
                             </div>
                             <div class="row pl-4 mb-2">
-                                <input type="file" onChange='getoutput5(event)' id="unggah-foto" name="foto_file5" class="text-center py-0" style="height:25px; width:90%; font-size:12px;">
+                                <input type="file" id="unggah-foto" name="foto_file5" class="text-center py-0 upload_image" style="width:90%; font-size:12px;">
                             </div>
-                            <!-- <img src="" alt="" class="preview_img" id="preview5" style="width:30%;margin:20px auto;"> -->
+                            <img alt="" class="preview_img ml-2" id="preview5" style="width:100%">
                         </div>
                     </div>
-            </div> 
+            </div>
+            <!-- popup-konfirmasi -->
+        <div class="modal fade modal-notif" id="modal-konfirmasi-daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog px-3">
+                    <div class="modal-content">
+                        <div class="top-content-style text-center shadow-sm">
+                          <div class="row ml-0 mb-0">
+                            <div class="col-4 pr-2 py-2 bg-orange">
+                              <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
+                            </div>
+                            <div class="col-8 py-2 pl-2">
+                              <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="bg-content-w3pvt mt-2 text-left px-3">
+                            <p class="text-12">Anda akan mengajukan pendaftaran sebagai mahasiswa baru UNIVERSITAS MERDEKA SURABAYA tahun akademik 2019/2020.</p>
+                            <p class="text-12">Bersama ini juga anda menyatakan bahwa data yang anda isikan benar.</p>
+                            <p class="text-12">Apakah anda yakin ?</p>
+                            <div class="row">
+                                <div class="col-6 pr-1">
+                                    <!-- <a href="#"> -->
+                                        <button class="btn btn-outline-warning popup-yesno" onclick="cancel()">
+                                            <label class="font-weight-bold text-16 mb-0 text-orange">TIDAK</label>
+                                        </button>
+                                    <!-- </a> -->
+                                </div>
+                                <div class="col-6 pl-1">
+                                    <!-- <a href="#"> -->
+                                        <button type="submit" class="btn btn-warning popup-yesno" id="ya-daftar">
+                                            <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
+                                        </button>
+                                    <!-- </a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
         <div class="row mt-2"> 
             <div class="col-6 text-right pr-1">
@@ -197,44 +230,6 @@
                     <label class="text-12 font-weight-bold text-white mb-0">NEXT</label>
                 </button>
                 <!-- </a> -->
-            </div>
-        </div>
-        <!-- popup-konfirmasi -->
-        <div class="modal fade modal-notif" id="modal-konfirmasi-daftar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog px-3">
-                <div class="modal-content">
-                    <div class="top-content-style text-center shadow-sm">
-                      <div class="row ml-0 mb-0">
-                        <div class="col-4 pr-2 py-2 bg-orange">
-                          <img class="logo-unmer" width="60%" src="images/unmerbaya.png"><br>
-                        </div>
-                        <div class="col-8 py-2 pl-2">
-                          <img class="logo-unmer-alumni" width="70%" src="images/unmer word logo.png"><br>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="bg-content-w3pvt mt-2 text-left px-3">
-                        <p class="text-12">Anda akan mengajukan pendaftaran sebagai mahasiswa baru UNIVERSITAS MERDEKA SURABAYA tahun akademik 2019/2020.</p>
-                        <p class="text-12">Bersama ini juga anda menyatakan bahwa data yang anda isikan benar.</p>
-                        <p class="text-12">Apakah anda yakin ?</p>
-                        <div class="row">
-                            <div class="col-6 pr-1">
-                                <!-- <a href="#"> -->
-                                    <button class="btn btn-outline-warning popup-yesno" onclick="cancel()">
-                                        <label class="font-weight-bold text-16 mb-0 text-orange">TIDAK</label>
-                                    </button>
-                                <!-- </a> -->
-                            </div>
-                            <div class="col-6 pl-1">
-                                <!-- <a href="#"> -->
-                                    <button class="btn btn-warning popup-yesno" id="ya-daftar">
-                                        <label class="font-weight-bold text-16 mb-0 text-white">YA</label>
-                                    </button>
-                                <!-- </a> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -293,11 +288,9 @@
                         <p class="text-12 py-3">Terima kasih telah melakukan pendaftaran online. Untuk informasi lebih lanjut kami akan menghubungi anda melalui aplikasi ini.</p>
                         <div class="row">
                             <div class="col-12 text-center">
-                                <!-- <a href="dashboard.html"> -->
-                                    <a data-dismiss="modal" class="btn btn-warning welcome-next font-weight-bold text-16 mb-0 text-white">
-                                        OK
-                                    </a>
-                                <!-- </a> -->
+                            <a href="dashboard.html" class="btn btn-warning welcome-next font-weight-bold text-16 mb-0 text-white">
+                                OK
+                            </a>
                             </div>
                         </div>
                     </div>
@@ -347,16 +340,66 @@
     </div>
 
   <script>
-        // function konfirmasi_daftar(){
-        //     $("#modal-konfirmasi-daftar").modal('show');            
-        // }
         $(document).ready(function(){
+            $('#user_id').val(localStorage.getItem('id'));
+            $('#name').val(localStorage.getItem('input_nama'));
+            $('#tgl_lahir').val(localStorage.getItem('input_tanggal'));
+            $('#tempat_lahir').val(localStorage.getItem('input_tempat'));
+            $('#gender').val(localStorage.getItem('input_gender'));
+            $('#agama').val(localStorage.getItem('input_agama'));
+            $('#kota').val(localStorage.getItem('input_kota'));
+            $('#kecamatan').val(localStorage.getItem('input_kecamatan'));
+            $('#desa').val(localStorage.getItem('input_desa'));
+            $('#address').val(localStorage.getItem('input_alamat'));
+            $('#phone').val(localStorage.getItem('input_phone'));
+            $('#nik').val(localStorage.getItem('input_nik'));
+            $('#nisn').val(localStorage.getItem('input_nisn'));
+            $('#sekolah_asal').val(localStorage.getItem('input_asal_sma'));
+            $('#alamat_sekolah_asal').val(localStorage.getItem('input_alamat_sma'));
+            $('#nama_kantor').val(localStorage.getItem('input_nama_kantor'));
+            $('#alamat_kantor').val(localStorage.getItem('input_alamat_kantor'));
+            $('#prodi').val(localStorage.getItem('input_prodi'));
+            $('#waktu').val(localStorage.getItem('input_waktu'));
+            $('#gelombang').val(localStorage.getItem('input_gelombang'));
+            get_data_user();
             //badge msg
             $('.msg-badge').hide();
             setInterval(function(){
                 get_data_message();
             }, 1000);
         });
+
+        function get_data_user(){
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/request_data_user/get_data_personal",
+                cache: false,
+                data: {
+                    id: localStorage.getItem('id')
+                },
+                dataType: "json",
+                success: function (data){
+                    if(data.msg == 'success'){
+                        $('#pilih-sumber').val(localStorage.getItem('input_sumber'));
+                        $('#pilih-waktu').val(localStorage.getItem('input_waktu'));
+                        $('#pilih-gelombang').val(localStorage.getItem('input_gelombang'));
+                    }else{
+                        $('#pilih-sumber').val(data.hasil.sumber_informasi);
+                        $('#preview1').attr('src', 'http://localhost/unmerbaya-pmb-backend/prabotan/image/ktp/'+ data.hasil.img_ktp);
+                        $('#preview2').attr('src', 'http://localhost/unmerbaya-pmb-backend/prabotan/image/kk/'+ data.hasil.img_kk);
+                        $('#preview3').attr('src', 'http://localhost/unmerbaya-pmb-backend/prabotan/image/nisn/'+ data.hasil.img_nisn); 
+                        $('#preview4').attr('src', 'http://localhost/unmerbaya-pmb-backend/prabotan/image/ijazah/'+ data.hasil.img_ijazah);
+                        $('#preview5').attr('src', 'http://localhost/unmerbaya-pmb-backend/prabotan/image/foto/'+ data.hasil.photo);$('.personal_data').attr('disabled', true);
+                        $('.personal_data').removeAttr('required');
+                        $('.upload_image').hide();
+                    }
+                },
+                error: function (){
+                    alert('Network Error');
+                }
+            });
+            return false;
+        }
 
         //chat
         function get_data_message(){
@@ -405,93 +448,6 @@
             });
             return false;
         };
-
-        var outputfile="";
-        var outputfile2="";
-        var outputfile3="";
-        var outputfile4="";
-        var outputfile5="";
-        var extension="";
-        var extension2="";
-        var extension3="";
-        var extension4="";
-        var extension5="";
-
-        function getoutput(event) {
-
-            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
-                return;
-            }
-            const name = event.target.files[0].name;
-            const lastDot = name.lastIndexOf('.');
-
-            const fileName = name.substring(0, lastDot);
-            const ext = name.substring(lastDot + 1);
-
-            outputfile = fileName;
-            extension = ext;
-
-        }
-        function getoutput2(event) {
-
-            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
-                return;
-            }
-            const name = event.target.files[0].name;
-            const lastDot = name.lastIndexOf('.');
-
-            const fileName = name.substring(0, lastDot);
-            const ext = name.substring(lastDot + 1);
-
-            outputfile2 = fileName;
-            extension2 = ext;
-
-        }
-        function getoutput3(event) {
-
-            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
-                return;
-            }
-            const name = event.target.files[0].name;
-            const lastDot = name.lastIndexOf('.');
-
-            const fileName = name.substring(0, lastDot);
-            const ext = name.substring(lastDot + 1);
-
-            outputfile3 = fileName;
-            extension3 = ext;
-
-        }
-        function getoutput4(event) {
-
-            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
-                return;
-            }
-            const name = event.target.files[0].name;
-            const lastDot = name.lastIndexOf('.');
-
-            const fileName = name.substring(0, lastDot);
-            const ext = name.substring(lastDot + 1);
-
-            outputfile4 = fileName;
-            extension4 = ext;
-
-        }
-        function getoutput5(event) {
-
-            if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
-                return;
-            }
-            const name = event.target.files[0].name;
-            const lastDot = name.lastIndexOf('.');
-
-            const fileName = name.substring(0, lastDot);
-            const ext = name.substring(lastDot + 1);
-
-            outputfile5 = fileName;
-            extension5 = ext;
-
-        }
         
         function cancel(){
             $("#modal-konfirmasi-daftar").modal('hide');
@@ -511,90 +467,44 @@
         $("#next-pendukung").on("click", function(e){
             e.preventDefault();
             localStorage.setItem('input_sumber', $('#pilih-sumber').val() );
-            localStorage.setItem('input_img_ktp', outputfile +'.' + extension );
-            localStorage.setItem('input_img_kk', outputfile2 +'.' + extension2 );
-            localStorage.setItem('input_img_nisn', outputfile3 +'.' + extension3 );
-            localStorage.setItem('input_img_ijazah', outputfile4 +'.' + extension4 );
-            localStorage.setItem('input_img_foto',  outputfile5 +'.' + extension5 );
-
             $("#modal-konfirmasi-daftar").modal('show'); 
         });
 
         // konfirmasi ya
 
-        $('input[name="foto_file"]').on('change', function(e){
-            file1 = e.target.files[0].name;
-        });
-        $("#ya-daftar").on("click",function(){
+        $("#detail-personal-data").on("submit",function(){
             $.ajax({
             type :"post",
             url : "http://localhost/unmerbaya-pmb-backend/unmer/Request/input_data_pendaftaran",
             cache :false,
-            data: {
-                //personal
-                user_id : localStorage.getItem('id'),
-                name : localStorage.getItem('input_nama'),
-                gender : localStorage.getItem('input_gender'),
-                tgl_lahir : localStorage.getItem('input_tanggal'),
-                tempat_lahir : localStorage.getItem('input_tempat'),
-                agama : localStorage.getItem('input_agama'),
-                kota : localStorage.getItem('input_kota'),
-                kecamatan : localStorage.getItem('input_kecamatan'),
-                desa : localStorage.getItem('input_desa'),
-                alamat : localStorage.getItem('input_alamat'),
-                phone : localStorage.getItem('input_phone'),
-                nik : localStorage.getItem('input_nik'),
-                nisn : localStorage.getItem('input_nisn'),
-                //riwayat
-                sekolah_asal : localStorage.getItem('input_asal_sma'),
-                alamat_sekolah_asal : localStorage.getItem('input_alamat_sma'),
-                nama_kantor : localStorage.getItem('input_nama_kantor'),
-                alamat_kantor : localStorage.getItem('input_alamat_kantor'),
-                //poi
-                prodi : localStorage.getItem('input_prodi'),
-                waktu : localStorage.getItem('input_waktu'),
-                gelombang : localStorage.getItem('input_gelombang'),
-                //pendukung
-                sumber_informasi : localStorage.getItem('input_sumber'),
-                foto_file : file1,
-                //foto_file2 : localStorage.getItem('input_img_kk'),
-                //foto_file3 : localStorage.getItem('input_img_nisn'),
-                //foto_file4 : localStorage.getItem('input_img_ijazah'),
-                //foto_file5 : localStorage.getItem('input_img_foto'),
-            },
+            enctype: 'multipart/form-data',
+            data: new FormData($('#detail-personal-data')[0]),
+            processData: false,
+            contentType: false,
             dataType: 'json',
             success : function(data) {
                 if(data.auth_message == 'success'){
                     terimakasih();
-                    // window.location = "dashboard.html";
-
-                    // document.getElementById("input-nama").disabled = true;
-                    // document.getElementById("input-gender").disabled = true;
-                    // document.getElementById("input-tanggal").disabled = true;
-                    // document.getElementById("input-tempat").disabled = true;
-                    // document.getElementById("input-agama").disabled = true;
-                    // document.getElementById("input-kota").disabled = true;
-                    // document.getElementById("input-kecamatan").disabled = true;
-                    // document.getElementById("input-desa").disabled = true;
-                    // document.getElementById("input-alamat").disabled = true;
-                    // document.getElementById("input-nik").disabled = true;
-                    // document.getElementById("input-nisn").disabled = true;
-
-                    // document.getElementById("asal-sma").disabled = true;
-                    // document.getElementById("alamat-sma").disabled = true;
-                    // document.getElementById("nama-kantor").disabled = true;
-                    // document.getElementById("alamat-kantor").disabled = true;
-
-                    // document.getElementById("pilih-prodi").disabled = true;
-                    // document.getElementById("pilih-waktu").disabled = true;
-                    // document.getElementById("pilih-gelombang").disabled = true;
-
-                    // document.getElementById("pilih-sumber").disabled = true;
-                    // document.getElementById("unggah-ktp").disabled = true;
-                    // document.getElementById("unggah-kk").disabled = true;
-                    // document.getElementById("unggah-nisn").disabled = true;
-                    // document.getElementById("unggah-ijazah").disabled = true;
-                    // document.getElementById("unggah-foto").disabled = true;
+                    localStorage.removeItem('input_nama');
+                    localStorage.removeItem('input_tanggal');
+                    localStorage.removeItem('input_tempat');
+                    localStorage.removeItem('input_gender');
+                    localStorage.removeItem('input_agama');
+                    localStorage.removeItem('input_kota');
+                    localStorage.removeItem('input_kecamatan');
+                    localStorage.removeItem('input_desa');
+                    localStorage.removeItem('input_alamat');
+                    localStorage.removeItem('input_phone');
+                    localStorage.removeItem('input_nik');
+                    localStorage.removeItem('input_nisn');
+                    localStorage.removeItem('input_asal_sma');
+                    localStorage.removeItem('input_alamat_sma');
+                    localStorage.removeItem('input_nama_kantor');
+                    localStorage.removeItem('input_alamat_kantor');
+                    localStorage.removeItem('input_prodi');
+                    localStorage.removeItem('input_waktu');
+                    localStorage.removeItem('input_gelombang');
+                    localStorage.removeItem('input_sumber');
                 } 
                 else{
                     alert('Data belum masuk database!');
