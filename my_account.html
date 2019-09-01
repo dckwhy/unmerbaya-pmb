@@ -35,7 +35,7 @@
                 </a>
             </div>
             <div class="col-2 pl-0 pr-0 text-right">
-                <a class="nav-link text-center py-1 px-1" href="#">
+                <a class="nav-link text-center py-1 px-1" onclick="update_message_admin()">
                     <img src="images/send.png" style="height: 30px;" class="mt-2">
                 </a>
             </div>
@@ -75,7 +75,7 @@
         <div class="box-avatar text-center">
             <div class="col-12 text-center">
                 <div class="circle text-center">
-                    <img class="profile-pic" src="images/my_account_hitam.png">
+                    <img class="profile-pic" src="">
                 </div>
                 <div class="p-image text-20">
                     <i class="fa fa-camera upload-button"></i>
@@ -220,19 +220,39 @@
 
     <script>
         $(document).ready(function(){
+            get_image();
             //badge msg
             $('.msg-badge').hide();
             setInterval(function(){
                 get_data_message();
             }, 1000);
         });
+
+        function get_image(){
+            $.ajax({
+                type: "post",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/request_data_photo/get_photo",
+                cache: false,
+                data: {
+                    id: localStorage.getItem('id')
+                },
+                dataType: "json",
+                success: function (data){
+                    $('.profile-pic').attr('src', data.img);
+                },
+                error: function (){
+                    alert('Network Error');
+                }
+            });
+            return false;
+        }
+
         //chat
         function get_data_message(){
             id = localStorage.getItem('id');
-        
             $.ajax({
               type: "post",
-              url: "http://localhost/unmerbaya/unmer/get_data_message",
+              url: "http://localhost/unmerbaya-pmb-backend/unmer/request_get_message/get_data_message",
               cache: false,
               data: {
                 id: id
@@ -256,7 +276,7 @@
         
             $.ajax({
                 type: "post",
-                url: "http://localhost/unmerbaya-pmb/unmer/request_get_message/update_message_admin",
+                url: "http://localhost/unmerbaya-pmb-backend/unmer/request_get_message/update_message_admin",
                 cache: false,
                 data: {
                 id: id
@@ -273,9 +293,11 @@
             });
             return false;
         };
+
         function maintenance(){
            $("#modal-maintenance").modal("show");
         };
+
         function enableform() {
             document.getElementById("name").disabled = false;
             document.getElementById("email").disabled = false;
@@ -287,6 +309,7 @@
             $('#keluar').hide();
             $('.p-image').show();
         }
+
         $(document).ready(function(){
             $('#save').hide();
             $('.p-image').hide();

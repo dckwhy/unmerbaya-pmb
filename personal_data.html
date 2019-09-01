@@ -42,7 +42,7 @@
                 </a>
             </div>
              <div class="col-2 pl-0 pr-0 text-right">
-                <a class="nav-link text-center py-1 px-1" href="#">
+                <a class="nav-link text-center py-1 px-1" onclick="update_message_admin()">
                     <img src="images/send.png" style="height: 30px;" class="mt-2">
                 </a>
             </div>
@@ -417,53 +417,52 @@
             });
             return false;
         }
-        //chat
-        function get_data_message(){
-            id = localStorage.getItem('id');
-        
-            $.ajax({
-              type: "post",
-              url: "http://localhost/unmerbaya/unmer/get_data_message",
-              cache: false,
-              data: {
-                id: id
-              },
-              dataType: "json",
-              success: function (data) {
-                if(data > 0 ){
-                  $('.msg-badge').show();
-                  $('.msg-badge').text(data);
-                }
-              },
-              error: function (){
-                alert('Network Error');
-              }
-            });
-            return false;
+       //chat
+       function get_data_message(){
+        id = localStorage.getItem('id');
+        $.ajax({
+          type: "post",
+          url: "http://localhost/unmerbaya-pmb-backend/unmer/request_get_message/get_data_message",
+          cache: false,
+          data: {
+            id: id
+          },
+          dataType: "json",
+          success: function (data) {
+            if(data > 0 ){
+              $('.msg-badge').show();
+              $('.msg-badge').text(data);
+            }
+          },
+          error: function (){
+            alert('Network Error');
           }
-          //chat
-        function update_message_admin(){
-            id = localStorage.getItem('id');
-        
-            $.ajax({
-                type: "post",
-                url: "http://localhost/unmerbaya-pmb/unmer/request_get_message/update_message_admin",
-                cache: false,
-                data: {
-                id: id
-                },
-                dataType: "json",
-                success: function (data) {
-                if(data.msg == 'success' ){
-                    window.location = 'chat.html';
-                }
-                },
-                error: function (){
-                alert('Network Error');
-                }
-            });
-            return false;
-        };
+        });
+        return false;
+      }
+      //chat
+    function update_message_admin(){
+        id = localStorage.getItem('id');
+    
+        $.ajax({
+            type: "post",
+            url: "http://localhost/unmerbaya-pmb-backend/unmer/request_get_message/update_message_admin",
+            cache: false,
+            data: {
+            id: id
+            },
+            dataType: "json",
+            success: function (data) {
+            if(data.msg == 'success' ){
+                window.location = 'chat.html';
+            }
+            },
+            error: function (){
+            alert('Network Error');
+            }
+        });
+        return false;
+    };
         function cancel(){
             $("#modal-konfirmasi-daftar").modal('hide');
             $("#modal-konfirmasi-cancel").modal('show');
