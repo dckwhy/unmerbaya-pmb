@@ -29,7 +29,7 @@
 </head>
 <body>
     <nav class="navbar fixed-top navbar-light bg-white py-1 shadow-sm">
-        <div class="row ml-0">
+        <!-- <div class="row ml-0"> -->
             <div class="col-3 pl-0 pr-4">
                 <a class="nav-link text-center py-1 px-1" href="welcome.html">
                     <img src="images/unmerbaya.png" style="height: 40px;">
@@ -49,7 +49,7 @@
             <div class="col-1 pl-0">
                 <span class="badge badge-danger badge-notif msg-badge"></span>
             </div>
-        </div>
+        <!-- </div> -->
     </nav>
 
     <nav class="navbar fixed-bottom navbar-light bg-white py-1">
@@ -117,6 +117,7 @@
                     </div>
                 </div>
                 <hr>
+
                 <div class="row mt-2">
                     <div class="ml-3">
                         <label class="text-14 font-weight-bold mb-0 mt-1">Riwayat Pekerjaan</label>
@@ -124,18 +125,32 @@
                 </div>
                 <div class="row">
                     <div class="col-4 pr-0">
-                        <label class="text-10 text-left">Nama Kantor</label>
+                        <label class="text-10 text-left">Apakah anda bekerja</label>
                     </div>
                     <div class="col-8">
-                        <input type="text" class="teks3 form-control personal_data" placeholder="Nama Kantor" id="nama-kantor" name="nama_kantor">
+                        <select class="form-control text-10 personal_data" onchange="value = this.value" id="pilih-kerja" required>
+                            <option class="text-10">--Silahkan pilih--</option>
+                            <option value="Bekerja">Bekerja</option>
+                            <option value="Tidak Bekerja">Tidak Bekerja</option>
+                        </select>
                     </div>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-4 pr-0">
-                        <label class="text-10">Alamat Kantor</label>
+                <div class="bekerja mt-2">
+                    <div class="row">
+                        <div class="col-4 pr-0">
+                            <label class="text-10 text-left">Nama Kantor</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="teks3 form-control personal_data" placeholder="Nama Kantor" id="nama-kantor" name="nama_kantor">
+                        </div>
                     </div>
-                    <div class="col-8">
-                        <input type="text" class="teks3 form-control personal_data" placeholder="Alamat Kantor" id="alamat-kantor" name="alamat_kantor">
+                    <div class="row mt-2">
+                        <div class="col-4 pr-0">
+                            <label class="text-10">Alamat Kantor</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="teks3 form-control personal_data" placeholder="Alamat Kantor" id="alamat-kantor" name="alamat_kantor">
+                        </div>
                     </div>
                 </div>
                 <br><br><br><br>
@@ -318,6 +333,17 @@
             $('#alamat-sma').val(localStorage.getItem('input_alamat_sma'));
             $('#nama-kantor').val(localStorage.getItem('input_nama_kantor'));
             $('#alamat-kantor').val(localStorage.getItem('input_alamat_kantor'));
+
+            $(".bekerja").hide();
+            $("#pilih-kerja").change(function (){
+                if($(this).val() == 'Bekerja') {
+                    $(".bekerja").show();
+                }
+                else if($(this).val() == 'Tidak Bekerja') {
+                    $(".bekerja").hide();
+                }
+            });
+
         });
 
         function get_data_user(){
